@@ -25,7 +25,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-black text-foreground">
       <Navigation />
       
       {/* Hero Section */}
@@ -33,7 +33,7 @@ const Index = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative container px-4 pt-24 sm:pt-32 md:pt-40 pb-20 max-w-full"
+        className="relative container px-4 pt-40 pb-20"
       >
         {/* Background */}
         <div 
@@ -52,13 +52,13 @@ const Index = () => {
           </span>
         </motion.div>
         
-        <div className="max-w-4xl relative z-10 w-full">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-normal mb-4 tracking-tight text-left">
-            <span className="text-muted-foreground font-bold">
+        <div className="max-w-4xl relative z-10">
+          <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left">
+            <span className="text-gray-200 font-bold">
               <TextGenerateEffect words="Power Up Your Workforce with" />
             </span>
             <br />
-            <span className="text-foreground font-medium">
+            <span className="text-white font-medium">
               <TextGenerateEffect words="Apex Industrial Robots" />
             </span>
           </h1>
@@ -67,21 +67,21 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl text-left"
+            className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl text-left"
           >
             From spotless floors to crystal-clear skyscraper windows to precision grass cutting, our next-gen industrial robots deliver unmatched performance 24/7.{" "}
-            <span className="text-foreground">Start automating in minutes.</span>
+            <span className="text-white">Start automating in minutes.</span>
           </motion.p>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start w-full"
+            className="flex flex-col sm:flex-row gap-4 items-start"
           >
             <Button 
               size="lg" 
-              className="button-gradient w-full sm:w-auto"
+              className="button-gradient"
               onClick={() => navigate('/shop')}
             >
               Explore Robots
@@ -89,7 +89,7 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="link" 
-              className="text-foreground w-full sm:w-auto justify-start sm:justify-center"
+              className="text-white"
               onClick={() => navigate('/roi-calculator')}
             >
               Calculate ROI <ArrowRight className="ml-2 w-4 h-4" />
