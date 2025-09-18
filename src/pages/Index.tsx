@@ -203,15 +203,7 @@ const Index = () => {
         <ProductComparison features={productData.comparison} />
       </div>
 
-      {/* Features Section */}
-      <div id="features" className="bg-black">
-        <FeaturesSection />
-      </div>
-
-      {/* Pricing Section */}
-      <div id="pricing" className="bg-black">
-        <PricingSection />
-      </div>
+      
 
       {/* Testimonials Section */}
       <div className="bg-black">
