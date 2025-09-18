@@ -7,30 +7,30 @@ export const ContactInfo = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Address",
-      details: ["Váci út 13-14", "1052 Budapest", "Hungary"],
-      gradient: "from-primary/10 to-primary/20",
-      iconBg: "bg-primary/10 border-primary/20"
+      details: ["123 Robotics Avenue", "Tech City, TC 12345", "United States"],
+      gradient: "from-blue-500/20 to-blue-600/20",
+      iconBg: "bg-blue-500/10 border-blue-500/20"
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      details: ["+36 1 234 5678", "+36 1 987 6543"],
-      gradient: "from-primary/5 to-primary/15",
-      iconBg: "bg-primary/10 border-primary/20"
+      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+      gradient: "from-green-500/20 to-green-600/20",
+      iconBg: "bg-green-500/10 border-green-500/20"
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      details: ["info@apexrobotech.hu", "support@apexrobotech.hu"],
-      gradient: "from-primary/5 to-primary/15",
-      iconBg: "bg-primary/10 border-primary/20"
+      details: ["sales@apexrobotech.com", "support@apexrobotech.com"],
+      gradient: "from-purple-500/20 to-purple-600/20",
+      iconBg: "bg-purple-500/10 border-purple-500/20"
     },
     {
       icon: <Clock className="w-6 h-6" />,
       title: "Business Hours",
-      details: ["Monday - Friday: 9:00 - 18:00", "CET (UTC+1)", "Weekend: By appointment"],
-      gradient: "from-primary/5 to-primary/15",
-      iconBg: "bg-primary/10 border-primary/20"
+      details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 10:00 AM - 4:00 PM", "Sunday: Closed"],
+      gradient: "from-orange-500/20 to-orange-600/20",
+      iconBg: "bg-orange-500/10 border-orange-500/20"
     }
   ];
 
