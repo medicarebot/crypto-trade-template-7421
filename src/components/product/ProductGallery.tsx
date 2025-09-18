@@ -6,9 +6,10 @@ interface ProductGalleryProps {
   images: string[];
   selectedImage: number;
   onImageSelect: (index: number) => void;
+  onFullscreenOpen: (index: number) => void;
 }
 
-export const ProductGallery = ({ images, selectedImage, onImageSelect }: ProductGalleryProps) => {
+export const ProductGallery = ({ images, selectedImage, onImageSelect, onFullscreenOpen }: ProductGalleryProps) => {
   const [isZoomed, setIsZoomed] = useState(false);
 
   const nextImage = () => {
@@ -22,14 +23,14 @@ export const ProductGallery = ({ images, selectedImage, onImageSelect }: Product
   return (
     <div className="space-y-4">
       {/* Main Image */}
-      <div className="relative aspect-square bg-background/50 rounded-xl overflow-hidden group">
+      <div 
+        className="relative aspect-square bg-background/50 rounded-xl overflow-hidden group cursor-pointer"
+        onClick={() => onFullscreenOpen(selectedImage)}
+      >
         <img
           src={images[selectedImage]}
           alt="Product"
-          className={`w-full h-full object-contain transition-transform duration-300 ${
-            isZoomed ? 'scale-150 cursor-zoom-out' : 'cursor-zoom-in'
-          }`}
-          onClick={() => setIsZoomed(!isZoomed)}
+          className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
         />
         
         {/* Navigation Buttons */}
