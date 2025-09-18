@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, X, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface ComparisonFeature {
   name: string;
@@ -16,9 +17,12 @@ interface ProductComparisonProps {
 }
 
 export const ProductComparison = ({ features }: ProductComparisonProps) => {
+  const navigate = useNavigate();
+  
   const products = [
     {
-      id: "industrial",
+      id: "industrial-cleaning",
+      mappingKey: "industrial",
       name: "Industrial Cleaning Robot",
       price: "$45,000",
       image: "/lovable-uploads/86329743-ee49-4f2e-96f7-50508436273d.png",
@@ -26,7 +30,8 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
       color: "from-blue-500/20 to-cyan-500/20"
     },
     {
-      id: "window",
+      id: "window-cleaning", 
+      mappingKey: "window",
       name: "Window Cleaning Robot",
       price: "$32,000",
       image: "/lovable-uploads/7335619d-58a9-41ad-a233-f7826f56f3e9.png",
@@ -34,7 +39,8 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
       color: "from-green-500/20 to-emerald-500/20"
     },
     {
-      id: "grass",
+      id: "grass-cutter",
+      mappingKey: "grass", 
       name: "Crawler Grass Cutter",
       price: "$28,000",
       image: "/lovable-uploads/b6436838-5c1a-419a-9cdc-1f9867df073d.png",
@@ -127,7 +133,10 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                 <div className="text-2xl font-bold text-primary mb-4">
                   {product.price}
                 </div>
-                <Button className="w-full button-gradient mb-4">
+                <Button 
+                  className="w-full button-gradient mb-4"
+                  onClick={() => navigate(`/product/${product.id}`)}
+                >
                   Configure
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -137,7 +146,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                 {features.map((feature, index) => (
                   <div key={index} className="py-3 border-b border-white/10 last:border-b-0 text-center">
                     {renderFeatureValue(
-                      feature[product.id as keyof Omit<ComparisonFeature, 'name'>]
+                      feature[product.mappingKey as keyof Omit<ComparisonFeature, 'name'>]
                     )}
                   </div>
                 ))}

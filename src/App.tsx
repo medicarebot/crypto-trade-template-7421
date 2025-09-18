@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Account from "./pages/Account";
 import OrderHistory from "./pages/OrderHistory";
+import ROICalculator from "./pages/ROICalculator";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/account" element={<Account />} />
             <Route path="/orders" element={<OrderHistory />} />
+            <Route path="/roi-calculator" element={<ROICalculator />} />
           </Routes>
         </BrowserRouter>
       </div>

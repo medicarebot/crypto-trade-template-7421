@@ -12,8 +12,18 @@ import { ProductShowcase } from "@/components/product/ProductShowcase";
 import { TechnicalSpecs } from "@/components/product/TechnicalSpecs";
 import { ProductComparison } from "@/components/product/ProductComparison";
 import { productData } from "@/data/products";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-foreground">
       <Navigation />
@@ -69,10 +79,19 @@ const Index = () => {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 items-start"
           >
-            <Button size="lg" className="button-gradient">
+            <Button 
+              size="lg" 
+              className="button-gradient"
+              onClick={() => navigate('/shop')}
+            >
               Explore Robots
             </Button>
-            <Button size="lg" variant="link" className="text-white">
+            <Button 
+              size="lg" 
+              variant="link" 
+              className="text-white"
+              onClick={() => navigate('/roi-calculator')}
+            >
               Calculate ROI <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </motion.div>
@@ -115,7 +134,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass rounded-xl overflow-hidden">
+            <div className="glass rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300" onClick={() => navigate('/product/industrial-cleaning')}>
               <img
                 src="/lovable-uploads/86329743-ee49-4f2e-96f7-50508436273d.png"
                 alt="Industrial Cleaning Robot"
@@ -124,11 +143,13 @@ const Index = () => {
               <div className="p-6">
                 <h3 className="text-white font-semibold text-xl mb-2">Industrial Cleaning Robot</h3>
                 <p className="text-gray-300 text-sm mb-4">Heavy-duty floor cleaning, fully automated for warehouses and factories.</p>
-                <Button variant="outline" size="sm" className="w-full">View in 3D</Button>
+                <Button variant="outline" size="sm" className="w-full" onClick={(e) => {e.stopPropagation(); navigate('/product/industrial-cleaning');}}>
+                  View Details
+                </Button>
               </div>
             </div>
             
-            <div className="glass rounded-xl overflow-hidden">
+            <div className="glass rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300" onClick={() => navigate('/product/window-cleaning')}>
               <img
                 src="/lovable-uploads/7335619d-58a9-41ad-a233-f7826f56f3e9.png"
                 alt="Window Cleaning Robot"
@@ -137,11 +158,13 @@ const Index = () => {
               <div className="p-6">
                 <h3 className="text-white font-semibold text-xl mb-2">Window Cleaning Robot</h3>
                 <p className="text-gray-300 text-sm mb-4">Safety and efficiency at every height for skyscrapers and glass facades.</p>
-                <Button variant="outline" size="sm" className="w-full">View in 3D</Button>
+                <Button variant="outline" size="sm" className="w-full" onClick={(e) => {e.stopPropagation(); navigate('/product/window-cleaning');}}>
+                  View Details
+                </Button>
               </div>
             </div>
             
-            <div className="glass rounded-xl overflow-hidden">
+            <div className="glass rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300" onClick={() => navigate('/product/grass-cutter')}>
               <img
                 src="/lovable-uploads/b6436838-5c1a-419a-9cdc-1f9867df073d.png"
                 alt="Landscaping Robot"
@@ -150,7 +173,9 @@ const Index = () => {
               <div className="p-6">
                 <h3 className="text-white font-semibold text-xl mb-2">Landscaping Robot</h3>
                 <p className="text-gray-300 text-sm mb-4">Smart landscaping with rugged power for parks and golf courses.</p>
-                <Button variant="outline" size="sm" className="w-full">View in 3D</Button>
+                <Button variant="outline" size="sm" className="w-full" onClick={(e) => {e.stopPropagation(); navigate('/product/grass-cutter');}}>
+                  View Details
+                </Button>
               </div>
             </div>
           </div>
@@ -194,7 +219,7 @@ const Index = () => {
       </div>
 
       {/* ROI Calculator Section */}
-      <section className="container px-4 py-20 bg-black">
+      <section id="roi-calculator" className="container px-4 py-20 bg-black">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -229,7 +254,11 @@ const Index = () => {
               <p className="text-gray-400 text-sm">CE, ISO, safety compliance</p>
             </div>
           </div>
-          <Button size="lg" className="button-gradient">
+          <Button 
+            size="lg" 
+            className="button-gradient"
+            onClick={() => navigate('/roi-calculator')}
+          >
             Calculate ROI
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
@@ -259,11 +288,19 @@ const Index = () => {
             Join hundreds of companies who have already discovered the power of industrial automation. Trusted by Europe's industries.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="button-gradient">
+            <Button 
+              size="lg" 
+              className="button-gradient"
+              onClick={() => navigate('/contact')}
+            >
               Request Quote
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <Button size="lg" variant="outline">
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => navigate('/contact')}
+            >
               Book Demo
             </Button>
           </div>

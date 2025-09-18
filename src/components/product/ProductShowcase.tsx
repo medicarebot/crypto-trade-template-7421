@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle, Zap, Shield, Globe } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface ProductShowcaseProps {
   product: {
@@ -25,6 +26,8 @@ interface ProductShowcaseProps {
 }
 
 export const ProductShowcase = ({ product, reverse = false }: ProductShowcaseProps) => {
+  const navigate = useNavigate();
+  
   return (
     <section className="container px-4 py-20">
       <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
@@ -135,11 +138,19 @@ export const ProductShowcase = ({ product, reverse = false }: ProductShowcasePro
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="button-gradient">
+            <Button 
+              size="lg" 
+              className="button-gradient"
+              onClick={() => navigate(`/product/${product.id}`)}
+            >
               Configure & Order
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <Button size="lg" variant="outline">
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => navigate('/contact')}
+            >
               Request Demo
             </Button>
           </div>

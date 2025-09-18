@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, ShoppingCart, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -21,6 +22,7 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product, viewMode = 'grid' }: ProductCardProps) => {
+  const navigate = useNavigate();
   const discount = product.originalPrice 
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : 0;
@@ -73,11 +75,13 @@ export const ProductCard = ({ product, viewMode = 'grid' }: ProductCardProps) =>
                     <ShoppingCart className="w-4 h-4 mr-2" />
                     Add to Cart
                   </Button>
-                  <Link to={`/product/${product.id}`}>
-                    <Button variant="outline" size="sm">
-                      View Details
-                    </Button>
-                  </Link>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
+                    View Details
+                  </Button>
                 </div>
               </div>
             </div>
@@ -103,25 +107,27 @@ export const ProductCard = ({ product, viewMode = 'grid' }: ProductCardProps) =>
           >
             <Heart className="w-4 h-4" />
           </Button>
-          <Link to={`/product/${product.id}`}>
-            <div className="aspect-square overflow-hidden bg-background/50">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-          </Link>
+          <div 
+            className="aspect-square overflow-hidden bg-background/50 cursor-pointer"
+            onClick={() => navigate(`/product/${product.id}`)}
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+            />
+          </div>
         </div>
         
         <div className="p-6 space-y-4">
           <div>
             <Badge variant="secondary" className="mb-2 text-xs">{product.category}</Badge>
-            <Link to={`/product/${product.id}`}>
-              <h3 className="font-semibold text-lg mb-2 hover:text-primary transition-colors line-clamp-2">
-                {product.name}
-              </h3>
-            </Link>
+            <h3 
+              className="font-semibold text-lg mb-2 hover:text-primary transition-colors line-clamp-2 cursor-pointer"
+              onClick={() => navigate(`/product/${product.id}`)}
+            >
+              {product.name}
+            </h3>
             <div className="flex items-center gap-2 mb-3">
               <div className="flex items-center gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (

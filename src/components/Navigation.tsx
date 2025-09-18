@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Command, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,9 +42,9 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { name: "Products", href: "#features", onClick: () => scrollToSection('features') },
-    { name: "Events", href: "#pricing", onClick: () => scrollToSection('pricing') },
-    { name: "Testimonials", href: "#testimonials", onClick: () => scrollToSection('testimonials') },
+    { name: "Products", href: "/shop", onClick: () => navigate('/shop') },
+    { name: "About", href: "/about", onClick: () => navigate('/about') },
+    { name: "Contact", href: "/contact", onClick: () => navigate('/contact') },
   ];
 
   return (
@@ -55,7 +57,10 @@ const Navigation = () => {
     >
       <div className="mx-auto h-full px-6">
         <nav className="flex items-center justify-between h-full">
-          <div className="flex items-center gap-2">
+          <div 
+            className="flex items-center gap-2 cursor-pointer" 
+            onClick={() => navigate('/')}
+          >
             <Command className="w-5 h-5 text-primary" />
             <span className="font-bold text-base">Apex Robotech</span>
           </div>
@@ -78,7 +83,7 @@ const Navigation = () => {
               </a>
             ))}
             <Button 
-              onClick={() => scrollToSection('cta')}
+              onClick={() => navigate('/cart')}
               size="sm"
               className="button-gradient"
             >
@@ -115,11 +120,11 @@ const Navigation = () => {
                   <Button 
                     onClick={() => {
                       setIsMobileMenuOpen(false);
-                      scrollToSection('cta');
+                      navigate('/cart');
                     }}
                     className="button-gradient mt-4"
                   >
-                    Apex Robotech
+                    Cart
                   </Button>
                 </div>
               </SheetContent>
