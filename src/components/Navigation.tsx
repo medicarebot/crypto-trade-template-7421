@@ -49,20 +49,20 @@ const Navigation = () => {
 
   return (
     <header
-      className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${
+      className={`fixed top-2 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${
         isScrolled 
-          ? "h-14 bg-[#1B1B1B]/40 backdrop-blur-xl border border-white/10 scale-95 w-[90%] max-w-2xl" 
-          : "h-14 bg-[#1B1B1B] w-[95%] max-w-3xl"
+          ? "h-12 bg-background/80 backdrop-blur-xl border border-border scale-95 w-[90%] max-w-2xl" 
+          : "h-14 bg-background/95 backdrop-blur-lg border border-border/50 w-[95%] max-w-3xl"
       }`}
     >
-      <div className="mx-auto h-full px-6">
+      <div className="mx-auto h-full px-3 sm:px-6">
         <nav className="flex items-center justify-between h-full">
           <div 
-            className="flex items-center gap-2 cursor-pointer" 
+            className="flex items-center gap-2 cursor-pointer min-w-0" 
             onClick={() => navigate('/')}
           >
-            <Command className="w-5 h-5 text-primary" />
-            <span className="font-bold text-base">Apex Robotech</span>
+            <Command className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
+            <span className="font-bold text-sm sm:text-base truncate">Apex Robotech</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -77,7 +77,7 @@ const Navigation = () => {
                     item.onClick();
                   }
                 }}
-                className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300"
+                className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 whitespace-nowrap"
               >
                 {item.name}
               </a>
@@ -95,17 +95,21 @@ const Navigation = () => {
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="glass">
-                  <Menu className="h-5 w-5" />
+                <Button variant="outline" size="icon" className="glass h-8 w-8 sm:h-10 sm:w-10">
+                  <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="bg-[#1B1B1B]">
-                <div className="flex flex-col gap-4 mt-8">
+              <SheetContent side="right" className="bg-background/95 backdrop-blur-xl border-border w-[280px] sm:w-[350px]">
+                <div className="flex flex-col gap-6 mt-8">
+                  <div className="flex items-center gap-2 pb-4 border-b border-border">
+                    <Command className="w-5 h-5 text-primary" />
+                    <span className="font-bold text-lg">Apex Robotech</span>
+                  </div>
                   {navItems.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-lg text-muted-foreground hover:text-foreground transition-colors py-2 px-4 rounded-lg hover:bg-muted/50"
                       onClick={(e) => {
                         e.preventDefault();
                         setIsMobileMenuOpen(false);
@@ -122,7 +126,8 @@ const Navigation = () => {
                       setIsMobileMenuOpen(false);
                       navigate('/cart');
                     }}
-                    className="button-gradient mt-4"
+                    className="button-gradient mt-4 w-full"
+                    size="lg"
                   >
                     Cart
                   </Button>
