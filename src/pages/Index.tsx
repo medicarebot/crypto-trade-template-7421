@@ -8,6 +8,10 @@ import LogoCarousel from "@/components/LogoCarousel";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { ProductShowcase } from "@/components/product/ProductShowcase";
+import { TechnicalSpecs } from "@/components/product/TechnicalSpecs";
+import { ProductComparison } from "@/components/product/ProductComparison";
+import { productData } from "@/data/products";
 
 const Index = () => {
   return (
@@ -153,7 +157,26 @@ const Index = () => {
         </motion.div>
       </motion.section>
 
-      
+      {/* Product Showcases */}
+      <div className="bg-black">
+        {productData.showcase.map((product, index) => (
+          <ProductShowcase 
+            key={product.id} 
+            product={product} 
+            reverse={index % 2 === 1} 
+          />
+        ))}
+      </div>
+
+      {/* Technical Specifications */}
+      <div className="bg-black">
+        <TechnicalSpecs products={productData.technicalSpecs} />
+      </div>
+
+      {/* Product Comparison */}
+      <div className="bg-black">
+        <ProductComparison features={productData.comparison} />
+      </div>
 
       {/* Features Section */}
       <div id="features" className="bg-black">
