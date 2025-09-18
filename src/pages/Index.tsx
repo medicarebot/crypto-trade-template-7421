@@ -40,7 +40,7 @@ const Index = () => {
         
         <div className="max-w-4xl relative z-10">
           <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left">
-            <span className="text-gray-200">
+            <span className="text-gray-200 font-bold">
               <TextGenerateEffect words="Power Up Your Workforce with" />
             </span>
             <br />
