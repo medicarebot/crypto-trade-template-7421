@@ -3,7 +3,6 @@ import { Command, Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { useNavigate } from "react-router-dom";
-import { ThemeToggle } from "./theme/ThemeToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,8 +51,8 @@ const Navigation = () => {
     <header
       className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${
         isScrolled 
-          ? "h-14 bg-background/60 backdrop-blur-xl border border-border/50 scale-95 w-[90%] max-w-2xl" 
-          : "h-14 bg-background/80 backdrop-blur-lg border border-border/20 w-[95%] max-w-3xl"
+          ? "h-14 bg-[#1B1B1B]/40 backdrop-blur-xl border border-white/10 scale-95 w-[90%] max-w-2xl" 
+          : "h-14 bg-[#1B1B1B] w-[95%] max-w-3xl"
       }`}
     >
       <div className="mx-auto h-full px-6">
@@ -63,7 +62,7 @@ const Navigation = () => {
             onClick={() => navigate('/')}
           >
             <Command className="w-5 h-5 text-primary" />
-            <span className="font-bold text-base text-foreground">Apex Robotech</span>
+            <span className="font-bold text-base">Apex Robotech</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -83,28 +82,24 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <Button 
-                onClick={() => navigate('/cart')}
-                size="sm"
-                className="button-gradient"
-              >
-                Cart
-              </Button>
-            </div>
+            <Button 
+              onClick={() => navigate('/cart')}
+              size="sm"
+              className="button-gradient"
+            >
+              Cart
+            </Button>
           </div>
 
           {/* Mobile Navigation */}
-          <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
+          <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="glass">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="bg-background/95 backdrop-blur-xl border-border/50">
+              <SheetContent className="bg-[#1B1B1B]">
                 <div className="flex flex-col gap-4 mt-8">
                   {navItems.map((item) => (
                     <a
