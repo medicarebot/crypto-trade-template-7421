@@ -153,8 +153,7 @@ const Index = () => {
         </motion.div>
       </motion.section>
 
-      {/* Logo Carousel */}
-      <LogoCarousel />
+      
 
       {/* Features Section */}
       <div id="features" className="bg-black">
