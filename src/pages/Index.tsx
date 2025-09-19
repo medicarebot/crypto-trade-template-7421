@@ -24,7 +24,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       
       {/* Hero Section */}
@@ -36,7 +36,7 @@ const Index = () => {
       >
         {/* Background */}
         <div 
-          className="absolute inset-0 -z-10 bg-[#0A0A0A]"
+          className="absolute inset-0 -z-10 bg-background"
         />
         
         <motion.div
@@ -53,11 +53,11 @@ const Index = () => {
         
         <div className="max-w-4xl relative z-10">
           <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left">
-            <span className="text-gray-200 font-bold">
+            <span className="text-foreground font-bold">
               <TextGenerateEffect words="Cut cleaning & landscaping costs by up to" />
             </span>
             <br />
-            <span className="text-white font-medium">
+            <span className="text-foreground font-bold">
               <TextGenerateEffect words="70% with 24/7 industrial robots" />
             </span>
           </h1>
@@ -66,10 +66,10 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl text-left"
+            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl text-left"
           >
             Eliminate safety risks, reduce operational costs, and scale your operations without hiring more staff.{" "}
-            <span className="text-white">Trusted by Europe's leading facilities.</span>
+            <span className="text-foreground">Trusted by Europe's leading facilities.</span>
           </motion.p>
           
           <motion.div
@@ -88,7 +88,7 @@ const Index = () => {
             <Button 
               size="lg" 
               variant="link" 
-              className="text-white"
+              className="text-foreground"
               onClick={() => navigate('/roi-calculator')}
             >
               Calculate ROI <ArrowRight className="ml-2 w-4 h-4" />
@@ -104,18 +104,18 @@ const Index = () => {
           >
             <div className="glass rounded-lg p-6">
               <div className="text-2xl mb-2">🧹</div>
-              <h3 className="text-white font-semibold mb-2">Industrial-Grade Cleaning</h3>
-              <p className="text-gray-300 text-sm">Uncompromising performance for warehouses, malls, and factories.</p>
+              <h3 className="text-foreground font-semibold mb-2">Industrial-Grade Cleaning</h3>
+              <p className="text-muted-foreground text-sm">Uncompromising performance for warehouses, malls, and factories.</p>
             </div>
             <div className="glass rounded-lg p-6">
               <div className="text-2xl mb-2">🪟</div>
-              <h3 className="text-white font-semibold mb-2">High-Rise Safety</h3>
-              <p className="text-gray-300 text-sm">Robots that replace dangerous manual window cleaning.</p>
+              <h3 className="text-foreground font-semibold mb-2">High-Rise Safety</h3>
+              <p className="text-muted-foreground text-sm">Robots that replace dangerous manual window cleaning.</p>
             </div>
             <div className="glass rounded-lg p-6">
               <div className="text-2xl mb-2">🌱</div>
-              <h3 className="text-white font-semibold mb-2">Automated Landscaping</h3>
-              <p className="text-gray-300 text-sm">Crawler robots built for tough terrain and large lawns.</p>
+              <h3 className="text-foreground font-semibold mb-2">Automated Landscaping</h3>
+              <p className="text-muted-foreground text-sm">Crawler robots built for tough terrain and large lawns.</p>
             </div>
           </motion.div>
         </div>
@@ -128,8 +128,8 @@ const Index = () => {
           className="relative mx-auto max-w-5xl mt-20"
         >
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">See Our Robots in Action</h2>
-            <p className="text-gray-300 text-lg">Experience the future of industrial automation</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">See Our Robots in Action</h2>
+            <p className="text-muted-foreground text-lg">Experience the future of industrial automation</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -140,8 +140,8 @@ const Index = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-white font-semibold text-xl mb-2">Industrial Cleaning Robot</h3>
-                <p className="text-gray-300 text-sm mb-4">Heavy-duty floor cleaning, fully automated for warehouses and factories.</p>
+                <h3 className="text-foreground font-semibold text-xl mb-2">Industrial Cleaning Robot</h3>
+                <p className="text-muted-foreground text-sm mb-4">Heavy-duty floor cleaning, fully automated for warehouses and factories.</p>
                 <Button variant="outline" size="sm" className="w-full" onClick={(e) => {e.stopPropagation(); navigate('/product/industrial-cleaning');}}>
                   View Details
                 </Button>
@@ -155,8 +155,8 @@ const Index = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-white font-semibold text-xl mb-2">Window Cleaning Robot</h3>
-                <p className="text-gray-300 text-sm mb-4">Safety and efficiency at every height for skyscrapers and glass facades.</p>
+                <h3 className="text-foreground font-semibold text-xl mb-2">Window Cleaning Robot</h3>
+                <p className="text-muted-foreground text-sm mb-4">Safety and efficiency at every height for skyscrapers and glass facades.</p>
                 <Button variant="outline" size="sm" className="w-full" onClick={(e) => {e.stopPropagation(); navigate('/product/window-cleaning');}}>
                   View Details
                 </Button>
@@ -170,8 +170,8 @@ const Index = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-white font-semibold text-xl mb-2">Landscaping Robot</h3>
-                <p className="text-gray-300 text-sm mb-4">Smart landscaping with rugged power for parks and golf courses.</p>
+                <h3 className="text-foreground font-semibold text-xl mb-2">Landscaping Robot</h3>
+                <p className="text-muted-foreground text-sm mb-4">Smart landscaping with rugged power for parks and golf courses.</p>
                 <Button variant="outline" size="sm" className="w-full" onClick={(e) => {e.stopPropagation(); navigate('/product/grass-cutter');}}>
                   View Details
                 </Button>
@@ -185,12 +185,12 @@ const Index = () => {
       <IndustriesSection />
 
       {/* ROI Calculator Section */}
-      <section id="roi-calculator" className="container px-4 py-20 bg-black">
+      <section id="roi-calculator" className="container px-4 py-20 bg-card">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-[#0A0A0A]/80 backdrop-blur-lg border border-white/10 rounded-2xl p-8 md:p-12 text-center"
+          className="glass border-border rounded-2xl p-8 md:p-12 text-center"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             How Much Can You Save?
@@ -201,23 +201,23 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <div className="text-center">
               <div className="text-2xl mb-2">💰</div>
-              <h3 className="text-white font-semibold">Up to 70% Savings</h3>
-              <p className="text-gray-400 text-sm">On operational costs</p>
+              <h3 className="text-foreground font-semibold">Up to 70% Savings</h3>
+              <p className="text-muted-foreground text-sm">On operational costs</p>
             </div>
             <div className="text-center">
               <div className="text-2xl mb-2">🛡️</div>
-              <h3 className="text-white font-semibold">Zero Accidents</h3>
-              <p className="text-gray-400 text-sm">Eliminate workplace risks</p>
+              <h3 className="text-foreground font-semibold">Zero Accidents</h3>
+              <p className="text-muted-foreground text-sm">Eliminate workplace risks</p>
             </div>
             <div className="text-center">
               <div className="text-2xl mb-2">⏰</div>
-              <h3 className="text-white font-semibold">24/7 Operations</h3>
-              <p className="text-gray-400 text-sm">No breaks, no overtime</p>
+              <h3 className="text-foreground font-semibold">24/7 Operations</h3>
+              <p className="text-muted-foreground text-sm">No breaks, no overtime</p>
             </div>
             <div className="text-center">
               <div className="text-2xl mb-2">📈</div>
-              <h3 className="text-white font-semibold">12 Month ROI</h3>
-              <p className="text-gray-400 text-sm">Typical payback period</p>
+              <h3 className="text-foreground font-semibold">12 Month ROI</h3>
+              <p className="text-muted-foreground text-sm">Typical payback period</p>
             </div>
           </div>
           <Button 
@@ -237,9 +237,114 @@ const Index = () => {
       {/* Simplified Product Section */}
       <SimplifiedProductSection />
 
-     
+      {/* Flexible Leasing Options */}
+      <section className="py-20 bg-card">
+        <div className="container px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Flexible Financing Options
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Start saving immediately with our leasing program - no large upfront investment required
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="glass rounded-xl p-8 text-center"
+            >
+              <div className="text-3xl font-bold text-primary mb-2">From €1,500/month</div>
+              <div className="text-lg font-semibold text-foreground mb-4">Industrial Cleaning Robot</div>
+              <p className="text-muted-foreground text-sm mb-4">Full maintenance & support included</p>
+              <ul className="text-left space-y-2 text-muted-foreground text-sm">
+                <li>• 24/7 technical support</li>
+                <li>• Regular maintenance visits</li>
+                <li>• Software updates included</li>
+                <li>• Insurance coverage</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="glass rounded-xl p-8 text-center border-primary/50"
+            >
+              <div className="text-3xl font-bold text-primary mb-2">From €1,800/month</div>
+              <div className="text-lg font-semibold text-foreground mb-4">Window Cleaning Robot</div>
+              <p className="text-muted-foreground text-sm mb-4">Full maintenance & support included</p>
+              <ul className="text-left space-y-2 text-muted-foreground text-sm">
+                <li>• Safety equipment included</li>
+                <li>• Emergency response team</li>
+                <li>• Weather monitoring service</li>
+                <li>• Liability insurance</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="glass rounded-xl p-8 text-center"
+            >
+              <div className="text-3xl font-bold text-primary mb-2">From €2,200/month</div>
+              <div className="text-lg font-semibold text-foreground mb-4">Landscaping Robot</div>
+              <p className="text-muted-foreground text-sm mb-4">Full maintenance & support included</p>
+              <ul className="text-left space-y-2 text-muted-foreground text-sm">
+                <li>• Seasonal optimization</li>
+                <li>• Blade replacement service</li>
+                <li>• Weather adaptation updates</li>
+                <li>• Terrain mapping support</li>
+              </ul>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <p className="text-lg text-muted-foreground mb-6">
+              Start reducing costs within 30 days. No capital expenditure required.
+            </p>
+            <Button 
+              size="lg" 
+              className="button-gradient"
+              onClick={() => navigate('/contact')}
+            >
+              Discuss Leasing Options
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Flexible Leasing Options */}
+      <div className="bg-card">
+        <PricingSection />
+      </div>
+
+      {/* Testimonials Section */}
+      <div className="bg-card">
+        <TestimonialsSection />
+      </div>
+
       {/* CTA Section */}
-      <section className="container px-4 py-20 relative bg-black">
+      <section className="container px-4 py-20 relative bg-card">
         <div 
           className="absolute inset-0 opacity-40"
           style={{
@@ -252,7 +357,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-[#0A0A0A]/80 backdrop-blur-lg border border-white/10 rounded-2xl p-8 md:p-12 text-center relative z-10"
+          className="glass border-border rounded-2xl p-8 md:p-12 text-center relative z-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Transform Your Operations?
@@ -281,7 +386,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <div className="bg-black">
+      <div className="bg-card">
         <Footer />
       </div>
     </div>
