@@ -87,7 +87,7 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
   };
 
   return (
-    <section className="container px-4 py-20 bg-black">
+    <section className="container px-4 py-20 bg-card">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -95,21 +95,21 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
           Technical Specifications
         </h2>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           Detailed technical specifications for all our industrial robots
         </p>
       </motion.div>
 
       <Tabs defaultValue={products[0]?.id} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-8 bg-white/5">
+        <TabsList className="grid w-full grid-cols-3 mb-8 bg-muted/20">
           {products.map((product) => (
             <TabsTrigger 
               key={product.id} 
               value={product.id} 
-              className="text-sm data-[state=active]:bg-primary data-[state=active]:text-white"
+              className="text-sm data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
               {product.name}
             </TabsTrigger>
@@ -125,20 +125,20 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
               className="space-y-8"
             >
               {/* Product Overview Card */}
-              <Card className="glass border-white/10 overflow-hidden">
+              <Card className="glass border-border overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
                   {/* Product Image & Info */}
                   <div className="lg:col-span-1 relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
                     <div className="p-8 relative z-10">
-                      <div className="aspect-square bg-white/5 rounded-2xl p-6 mb-6 border border-white/10">
+                      <div className="aspect-square bg-muted/20 rounded-2xl p-6 mb-6 border border-border">
                         <img
                           src={product.image}
                           alt={product.name}
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                      <h3 className="text-2xl font-bold text-foreground mb-2">
                         {product.name}
                       </h3>
                       <div className="flex flex-wrap gap-2 mb-6">
@@ -154,13 +154,13 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                       {/* Key Stats */}
                       <div className="space-y-4">
                         <div className="grid grid-cols-2 gap-4">
-                          <div className="bg-white/5 rounded-lg p-3 text-center">
+                          <div className="bg-muted/20 rounded-lg p-3 text-center">
                             <div className="text-2xl font-bold text-primary">24/7</div>
-                            <div className="text-xs text-gray-400">Operation</div>
+                            <div className="text-xs text-muted-foreground">Operation</div>
                           </div>
-                          <div className="bg-white/5 rounded-lg p-3 text-center">
+                          <div className="bg-muted/20 rounded-lg p-3 text-center">
                             <div className="text-2xl font-bold text-green-400">95%</div>
-                            <div className="text-xs text-gray-400">Efficiency</div>
+                            <div className="text-xs text-muted-foreground">Efficiency</div>
                           </div>
                         </div>
                         
@@ -175,7 +175,7 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                   {/* Quick Overview */}
                   <div className="lg:col-span-2 p-8">
                     <div className="mb-6">
-                      <h4 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                      <h4 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
                         <Info className="w-5 h-5 text-primary" />
                         Product Overview
                       </h4>
@@ -185,12 +185,12 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                           Object.entries(specs).slice(0, 4).map(([key, value], index) => {
                             const IconComponent = getIcon(category, key);
                             return (
-                              <div key={key} className="bg-white/5 rounded-lg p-4 text-center">
+                              <div key={key} className="bg-muted/20 rounded-lg p-4 text-center">
                                 <IconComponent className="w-6 h-6 text-primary mx-auto mb-2" />
-                                <div className="text-sm font-semibold text-white">
+                                <div className="text-sm font-semibold text-foreground">
                                   {Array.isArray(value) ? value[0] : value}
                                 </div>
-                                <div className="text-xs text-gray-400">{key}</div>
+                                <div className="text-xs text-muted-foreground">{key}</div>
                               </div>
                             );
                           })
@@ -200,7 +200,7 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
 
                     {/* Features Grid */}
                     <div>
-                      <h4 className="text-lg font-semibold text-white mb-4">Key Features</h4>
+                      <h4 className="text-lg font-semibold text-foreground mb-4">Key Features</h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {product.id === 'industrial-cleaning' && [
                           'Advanced LIDAR navigation system',
@@ -210,7 +210,7 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                           '24/7 continuous operation capability',
                           'Industrial-grade construction'
                         ].map((feature, index) => (
-                          <div key={index} className="flex items-center gap-2 text-gray-300">
+                          <div key={index} className="flex items-center gap-2 text-muted-foreground">
                             <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                             <span className="text-sm">{feature}</span>
                           </div>
@@ -224,7 +224,7 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                           'Remote monitoring capability',
                           'Emergency stop systems'
                         ].map((feature, index) => (
-                          <div key={index} className="flex items-center gap-2 text-gray-300">
+                          <div key={index} className="flex items-center gap-2 text-muted-foreground">
                             <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                             <span className="text-sm">{feature}</span>
                           </div>
@@ -238,7 +238,7 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                           'Remote control operation',
                           'Eco-friendly low-noise operation'
                         ].map((feature, index) => (
-                          <div key={index} className="flex items-center gap-2 text-gray-300">
+                          <div key={index} className="flex items-center gap-2 text-muted-foreground">
                             <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                             <span className="text-sm">{feature}</span>
                           </div>
@@ -260,9 +260,9 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: categoryIndex * 0.1, duration: 0.4 }}
                     >
-                      <Card className="glass border-white/10 h-full hover:border-primary/30 transition-all duration-300">
+                      <Card className="glass border-border h-full hover:border-primary/30 transition-all duration-300">
                         <CardHeader className="pb-4">
-                          <CardTitle className="text-lg text-white flex items-center gap-3">
+                          <CardTitle className="text-lg text-foreground flex items-center gap-3">
                             <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
                               <IconComponent className="w-5 h-5 text-primary" />
                             </div>
@@ -276,20 +276,20 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                               <div key={key} className="group">
                                 <div className="flex items-start justify-between py-2">
                                   <div className="flex items-center gap-2 flex-1">
-                                    <SpecIcon className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors flex-shrink-0 mt-0.5" />
-                                    <span className="text-gray-400 text-sm font-medium">{key}:</span>
+                                    <SpecIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 mt-0.5" />
+                                    <span className="text-muted-foreground text-sm font-medium">{key}:</span>
                                   </div>
                                   <div className="text-right max-w-[60%]">
                                     {Array.isArray(value) ? (
                                       <div className="space-y-1">
                                         {value.map((item, index) => (
-                                          <div key={index} className="text-white text-sm font-semibold">
+                                          <div key={index} className="text-foreground text-sm font-semibold">
                                             {item}
                                           </div>
                                         ))}
                                       </div>
                                     ) : (
-                                      <span className="text-white text-sm font-semibold">
+                                      <span className="text-foreground text-sm font-semibold">
                                         {value}
                                       </span>
                                     )}
@@ -297,7 +297,7 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                                 </div>
                                 {Object.keys(specs).length > 1 && 
                                  Object.keys(specs)[Object.keys(specs).length - 1] !== key && (
-                                  <Separator className="bg-white/5" />
+                                  <Separator className="bg-border" />
                                 )}
                               </div>
                             );
@@ -310,9 +310,9 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
               </div>
 
               {/* Additional Information */}
-              <Card className="glass border-white/10">
+              <Card className="glass border-border">
                 <CardHeader>
-                  <CardTitle className="text-xl text-white flex items-center gap-2">
+                  <CardTitle className="text-xl text-foreground flex items-center gap-2">
                     <Settings className="w-6 h-6 text-primary" />
                     Additional Information
                   </CardTitle>
@@ -320,8 +320,8 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                      <h5 className="font-semibold text-white mb-3">Warranty & Support</h5>
-                      <ul className="space-y-2 text-sm text-gray-300">
+                      <h5 className="font-semibold text-foreground mb-3">Warranty & Support</h5>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
                         <li>• 2-year comprehensive warranty</li>
                         <li>• 24/7 technical support</li>
                         <li>• On-site maintenance available</li>
@@ -329,8 +329,8 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                       </ul>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-white mb-3">Certifications</h5>
-                      <ul className="space-y-2 text-sm text-gray-300">
+                      <h5 className="font-semibold text-foreground mb-3">Certifications</h5>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
                         <li>• CE Marking compliance</li>
                         <li>• ISO 9001 certified</li>
                         <li>• GDPR compliant data handling</li>
@@ -338,8 +338,8 @@ export const TechnicalSpecs = ({ products }: TechnicalSpecsProps) => {
                       </ul>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-white mb-3">Training & Installation</h5>
-                      <ul className="space-y-2 text-sm text-gray-300">
+                      <h5 className="font-semibold text-foreground mb-3">Training & Installation</h5>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
                         <li>• Professional installation included</li>
                         <li>• Comprehensive operator training</li>
                         <li>• Online training materials</li>

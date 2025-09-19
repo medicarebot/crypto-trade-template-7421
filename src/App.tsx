@@ -21,7 +21,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="dark" storageKey="robotech-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="robotech-ui-theme">
       <TooltipProvider>
         <div className="min-h-screen bg-background">
           <Toaster />

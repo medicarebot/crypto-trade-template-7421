@@ -79,7 +79,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
     }
     return (
       <div className="text-center">
-        <span className="text-white text-sm font-semibold bg-white/10 px-2 py-1 rounded-md">
+        <span className="text-foreground text-sm font-semibold bg-muted/20 px-2 py-1 rounded-md">
           {value}
         </span>
       </div>
@@ -87,7 +87,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
   };
 
   return (
-    <section className="container px-4 py-20 bg-black">
+    <section className="container px-4 py-20 bg-card">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -95,10 +95,10 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
         transition={{ duration: 0.6 }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
           Compare Our Robots
         </h2>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
           Find the perfect industrial robot for your specific needs
         </p>
       </motion.div>
@@ -111,17 +111,17 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="max-w-7xl mx-auto"
       >
-        <Card className="glass border-white/10 overflow-hidden">
+        <Card className="glass border-border overflow-hidden">
           {/* Product Headers */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
             {/* Features Header */}
-            <div className="lg:col-span-1 border-r border-white/10 bg-white/5">
+            <div className="lg:col-span-1 border-r border-border bg-muted/20">
               <CardHeader className="p-6 lg:p-8">
-                <CardTitle className="text-white text-lg flex items-center gap-2">
+                <CardTitle className="text-foreground text-lg flex items-center gap-2">
                   <Zap className="w-5 h-5 text-primary" />
                   Features
                 </CardTitle>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground">
                   Compare key specifications
                 </p>
               </CardHeader>
@@ -135,7 +135,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
                 className={`relative overflow-hidden ${
-                  index < products.length - 1 ? 'border-r border-white/10' : ''
+                  index < products.length - 1 ? 'border-r border-border' : ''
                 }`}
               >
                 {/* Background gradient */}
@@ -143,7 +143,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                 
                 <CardHeader className="relative z-10 p-6 text-center">
                   {/* Product Image */}
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-white/10 p-3 border border-white/20">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-muted/20 p-3 border border-border">
                     <img
                       src={product.image}
                       alt={product.name}
@@ -160,12 +160,12 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                   </Badge>
 
                   {/* Product Name */}
-                  <CardTitle className="text-white text-lg mb-2 leading-tight">
+                  <CardTitle className="text-foreground text-lg mb-2 leading-tight">
                     {product.shortName}
                   </CardTitle>
 
                   {/* Description */}
-                  <p className="text-gray-300 text-xs mb-4 leading-relaxed">
+                  <p className="text-muted-foreground text-xs mb-4 leading-relaxed">
                     {product.description}
                   </p>
 
@@ -174,7 +174,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                     <div className="text-3xl font-bold text-primary">
                       {product.price}
                     </div>
-                    <div className="text-sm text-gray-400 line-through">
+                    <div className="text-sm text-muted-foreground line-through">
                       {product.originalPrice}
                     </div>
                   </div>
@@ -192,7 +192,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
             ))}
           </div>
 
-          <Separator className="bg-white/10" />
+          <Separator className="bg-border" />
 
           {/* Features Comparison */}
           <CardContent className="p-0">
@@ -203,12 +203,12 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: featureIndex * 0.05 + 0.5, duration: 0.3 }}
                 className={`grid grid-cols-1 lg:grid-cols-4 ${
-                  featureIndex < features.length - 1 ? 'border-b border-white/10' : ''
-                } hover:bg-white/5 transition-colors duration-200`}
+                  featureIndex < features.length - 1 ? 'border-b border-border' : ''
+                } hover:bg-muted/10 transition-colors duration-200`}
               >
                 {/* Feature Name */}
-                <div className="lg:col-span-1 border-r border-white/10 bg-white/5 p-6 flex items-center">
-                  <span className="text-gray-300 font-medium text-sm">
+                <div className="lg:col-span-1 border-r border-border bg-muted/20 p-6 flex items-center">
+                  <span className="text-muted-foreground font-medium text-sm">
                     {feature.name}
                   </span>
                 </div>
@@ -218,7 +218,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                   <div
                     key={product.id}
                     className={`p-6 flex items-center justify-center ${
-                      productIndex < products.length - 1 ? 'border-r border-white/10' : ''
+                      productIndex < products.length - 1 ? 'border-r border-border' : ''
                     }`}
                   >
                     {renderFeatureValue(
@@ -238,15 +238,15 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="mt-12 text-center"
         >
-          <Card className="glass border-white/10 bg-gradient-to-r from-primary/10 to-transparent">
+          <Card className="glass border-border bg-gradient-to-r from-primary/10 to-transparent">
             <CardContent className="p-8">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <Award className="w-6 h-6 text-primary" />
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-foreground">
                   Need Help Choosing?
                 </h3>
               </div>
-              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                 Our robotics experts can help you select the perfect robot for your specific needs. 
                 Get personalized recommendations and see potential ROI for your facility.
               </p>
@@ -259,7 +259,7 @@ export const ProductComparison = ({ features }: ProductComparisonProps) => {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-white/20"
+                  className="border-border"
                   onClick={() => navigate('/roi-calculator')}
                 >
                   Calculate Your ROI
