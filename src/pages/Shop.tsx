@@ -53,42 +53,9 @@ const Shop = () => {
       <Navigation />
       
       <main className="container px-4 py-8 mt-20">
-        {/* Header Section */}
         
 
-        {/* Featured Products Banner */}
-        {featuredProducts.length > 0 && (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-12"
-          >
-            <div className="glass rounded-2xl p-8 border-transparent bg-gradient-to-r from-primary/5 to-secondary/5">
-              <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                <Badge variant="default" className="animate-pulse">Featured</Badge>
-                Industrial Robot Solutions
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {featuredProducts.map((product, index) => (
-                  <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.1 * index }}
-                    className="text-center"
-                  >
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-2xl">{index === 0 ? '🧹' : index === 1 ? '🪟' : '🌱'}</span>
-                    </div>
-                    <h3 className="font-semibold mb-2">{product.name}</h3>
-                    <p className="text-sm text-muted-foreground">{product.tagline}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
+       
 
         {/* Search and Filters */}
         <div className="flex flex-col lg:flex-row gap-8">
