@@ -45,7 +45,7 @@ const Index = () => {
           transition={{ delay: 0.2 }}
           className="inline-block mb-4 px-4 py-1.5 rounded-full glass"
         >
-          <span className="text-sm font-medium">
+          <span className="text-sm font-bold">
             <Command className="w-4 h-4 inline-block mr-2" />
             Next-gen industrial robotics
           </span>
