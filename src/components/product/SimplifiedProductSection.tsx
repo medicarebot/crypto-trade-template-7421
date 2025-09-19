@@ -150,7 +150,7 @@ const SimplifiedProductSection = () => {
                           <Euro className="w-5 h-5 text-primary mr-2" />
                           <span className="text-2xl font-bold text-white">{product.leasePrice}</span>
                         </div>
-                        <p className="text-sm text-gray-400">Monthly Lease</p>
+                        <p className="text-sm text-gray-400">Monthly Lease<br /><span className="text-xs text-green-400">Full maintenance included</span></p>
                       </div>
                       <div className="text-center p-4 bg-white/5 rounded-lg">
                         <div className="flex items-center justify-center mb-2">

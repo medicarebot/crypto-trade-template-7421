@@ -238,6 +238,102 @@ const Index = () => {
       <SimplifiedProductSection />
 
       {/* Flexible Leasing Options */}
+      <section className="py-20 bg-black">
+        <div className="container px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+              Flexible Financing Options
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Start saving immediately with our leasing program - no large upfront investment required
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="glass rounded-xl p-8 text-center"
+            >
+              <div className="text-3xl font-bold text-primary mb-2">From €1,500/month</div>
+              <div className="text-lg font-semibold text-white mb-4">Industrial Cleaning Robot</div>
+              <p className="text-gray-300 text-sm mb-4">Full maintenance & support included</p>
+              <ul className="text-left space-y-2 text-gray-300 text-sm">
+                <li>• 24/7 technical support</li>
+                <li>• Regular maintenance visits</li>
+                <li>• Software updates included</li>
+                <li>• Insurance coverage</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="glass rounded-xl p-8 text-center border-primary/50"
+            >
+              <div className="text-3xl font-bold text-primary mb-2">From €1,800/month</div>
+              <div className="text-lg font-semibold text-white mb-4">Window Cleaning Robot</div>
+              <p className="text-gray-300 text-sm mb-4">Full maintenance & support included</p>
+              <ul className="text-left space-y-2 text-gray-300 text-sm">
+                <li>• Safety equipment included</li>
+                <li>• Emergency response team</li>
+                <li>• Weather monitoring service</li>
+                <li>• Liability insurance</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="glass rounded-xl p-8 text-center"
+            >
+              <div className="text-3xl font-bold text-primary mb-2">From €2,200/month</div>
+              <div className="text-lg font-semibold text-white mb-4">Landscaping Robot</div>
+              <p className="text-gray-300 text-sm mb-4">Full maintenance & support included</p>
+              <ul className="text-left space-y-2 text-gray-300 text-sm">
+                <li>• Seasonal optimization</li>
+                <li>• Blade replacement service</li>
+                <li>• Weather adaptation updates</li>
+                <li>• Terrain mapping support</li>
+              </ul>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <p className="text-lg text-gray-300 mb-6">
+              Start reducing costs within 30 days. No capital expenditure required.
+            </p>
+            <Button 
+              size="lg" 
+              className="button-gradient"
+              onClick={() => navigate('/contact')}
+            >
+              Discuss Leasing Options
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Flexible Leasing Options */}
       <div className="bg-black">
         <PricingSection />
       </div>
@@ -275,15 +371,15 @@ const Index = () => {
               className="button-gradient"
               onClick={() => navigate('/contact')}
             >
-              Book Demo
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              onClick={() => navigate('/roi-calculator')}
-            >
-              Get ROI Report
+            Book Demo
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+          <Button 
+            size="lg" 
+            variant="outline"
+            onClick={() => navigate('/roi-calculator')}
+          >
+            Get ROI Report
             </Button>
           </div>
         </motion.div>
