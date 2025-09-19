@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
-import { Command, Menu } from "lucide-react";
+import { Command, Menu, Search, ShoppingCart, User, Heart, Percent, Phone } from "lucide-react";
 import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Input } from "./ui/input";
 import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
+  // Mock cart count - in real app this would come from state management
+  const cartItemCount = 3;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,22 +47,31 @@ const Navigation = () => {
     }
   };
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/shop?search=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
   const navItems = [
-    { name: "Products", href: "/shop", onClick: () => navigate('/shop') },
-    { name: "About", href: "/about", onClick: () => navigate('/about') },
-    { name: "Contact", href: "/contact", onClick: () => navigate('/contact') },
+    { name: "Shop", href: "/shop", onClick: () => navigate('/shop') },
+    { name: "Categories", href: "/shop", onClick: () => navigate('/shop') },
+    { name: "Deals", href: "/shop?filter=sale", onClick: () => navigate('/shop?filter=sale') },
+    { name: "Support", href: "/contact", onClick: () => navigate('/contact') },
   ];
 
   return (
     <header
       className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${
         isScrolled 
-          ? "h-14 bg-[#1B1B1B]/40 backdrop-blur-xl border border-white/10 scale-95 w-[90%] max-w-2xl" 
-          : "h-14 bg-[#1B1B1B] w-[95%] max-w-3xl"
+          ? "h-14 bg-[#1B1B1B]/40 backdrop-blur-xl border border-white/10 scale-95 w-[95%] max-w-6xl" 
+          : "h-14 bg-[#1B1B1B] w-[98%] max-w-7xl"
       }`}
     >
       <div className="mx-auto h-full px-6">
         <nav className="flex items-center justify-between h-full">
+          {/* Logo */}
           <div 
             className="flex items-center gap-2 cursor-pointer" 
             onClick={() => navigate('/')}
@@ -66,7 +81,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -82,12 +97,57 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
+          </div>
+
+          {/* Search Bar */}
+          <div className="hidden md:flex flex-1 max-w-sm mx-6">
+            <form onSubmit={handleSearch} className="relative w-full">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 h-9 bg-background/50 border-white/10"
+              />
+            </form>
+          </div>
+
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Wishlist */}
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => navigate('/wishlist')}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <Heart className="w-4 h-4" />
+            </Button>
+
+            {/* Account */}
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => navigate('/account')}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <User className="w-4 h-4" />
+            </Button>
+
+            {/* Cart */}
             <Button 
               onClick={() => navigate('/cart')}
               size="sm"
-              className="button-gradient"
+              className="button-gradient relative"
             >
+              <ShoppingCart className="w-4 h-4 mr-1" />
               Cart
+              {cartItemCount > 0 && (
+                <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 text-xs bg-red-500 hover:bg-red-600">
+                  {cartItemCount}
+                </Badge>
+              )}
             </Button>
           </div>
 
@@ -101,11 +161,23 @@ const Navigation = () => {
               </SheetTrigger>
               <SheetContent className="bg-[#1B1B1B]">
                 <div className="flex flex-col gap-4 mt-8">
+                  {/* Mobile Search */}
+                  <form onSubmit={handleSearch} className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                    <Input
+                      type="text"
+                      placeholder="Search products..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-10 bg-background/50 border-white/10"
+                    />
+                  </form>
+
                   {navItems.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-lg text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
                       onClick={(e) => {
                         e.preventDefault();
                         setIsMobileMenuOpen(false);
@@ -114,18 +186,55 @@ const Navigation = () => {
                         }
                       }}
                     >
+                      {item.name === "Shop" && <ShoppingCart className="w-4 h-4" />}
+                      {item.name === "Deals" && <Percent className="w-4 h-4" />}
+                      {item.name === "Support" && <Phone className="w-4 h-4" />}
                       {item.name}
                     </a>
                   ))}
-                  <Button 
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      navigate('/cart');
-                    }}
-                    className="button-gradient mt-4"
-                  >
-                    Cart
-                  </Button>
+
+                  {/* Mobile Actions */}
+                  <div className="border-t border-white/10 pt-4 space-y-3">
+                    <Button 
+                      variant="outline"
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        navigate('/wishlist');
+                      }}
+                      className="w-full justify-start"
+                    >
+                      <Heart className="w-4 h-4 mr-2" />
+                      Wishlist
+                    </Button>
+                    
+                    <Button 
+                      variant="outline"
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        navigate('/account');
+                      }}
+                      className="w-full justify-start"
+                    >
+                      <User className="w-4 h-4 mr-2" />
+                      My Account
+                    </Button>
+                    
+                    <Button 
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        navigate('/cart');
+                      }}
+                      className="button-gradient w-full relative"
+                    >
+                      <ShoppingCart className="w-4 h-4 mr-2" />
+                      Cart
+                      {cartItemCount > 0 && (
+                        <Badge className="ml-2 h-5 w-5 rounded-full p-0 text-xs bg-red-500">
+                          {cartItemCount}
+                        </Badge>
+                      )}
+                    </Button>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
