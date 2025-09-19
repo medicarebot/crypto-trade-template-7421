@@ -59,8 +59,8 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Shop", href: "/shop", onClick: () => navigate('/shop') },
-    { name: "Categories", href: "/shop", onClick: () => navigate('/shop') },
-    { name: "Deals", href: "/shop?filter=sale", onClick: () => navigate('/shop?filter=sale') },
+    { name: "Categories", href: "/categories", onClick: () => navigate('/categories') },
+    { name: "Deals", href: "/deals", onClick: () => navigate('/deals') },
     { name: "Support", href: "/contact", onClick: () => navigate('/contact') },
   ];
 
