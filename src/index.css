@@ -58,9 +58,9 @@
   }
   
   html {
-    /* Maintain stable scrollbar width to prevent layout shifts */
-    scrollbar-gutter: stable;
+    /* Force scrollbar to always be visible to prevent layout shifts */
     overflow-y: scroll;
+    scrollbar-gutter: stable;
   }
   
   body {
@@ -69,18 +69,26 @@
     /* Prevent layout shift when dropdowns open */
     position: relative;
     overflow-x: hidden;
+    /* Ensure no width changes occur */
+    min-width: 100vw;
+    box-sizing: border-box;
   }
   
-  /* Override Radix Portal body style changes */
-  body[data-scroll-locked] {
-    overflow: visible !important;
-    padding-right: 0 !important;
-  }
-  
-  /* Prevent body overflow changes that cause layout shifts */
-  body[style*="overflow"] {
+  /* Completely prevent Radix from modifying body styles */
+  body[data-scroll-locked],
+  body[data-radix-scroll-area-content],
+  body[style*="overflow"],
+  body[style*="padding-right"] {
     overflow-x: hidden !important;
-    overflow-y: auto !important;
+    overflow-y: scroll !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Prevent any portal content from affecting layout */
+  [data-radix-portal] {
+    position: fixed !important;
+    z-index: 9999 !important;
   }
 }
 
