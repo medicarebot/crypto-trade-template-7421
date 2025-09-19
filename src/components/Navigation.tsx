@@ -49,7 +49,9 @@ const Navigation = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Search submitted:", searchQuery);
     if (searchQuery.trim()) {
+      console.log("Navigating to search:", `/shop?search=${encodeURIComponent(searchQuery)}`);
       navigate(`/shop?search=${encodeURIComponent(searchQuery)}`);
       setSearchQuery(""); // Clear search after navigation
     }
@@ -103,14 +105,16 @@ const Navigation = () => {
           {/* Search Bar */}
           <div className="hidden md:flex flex-1 max-w-sm mx-6">
             <form onSubmit={handleSearch} className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <Input
                 type="text"
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 h-9 bg-background/50 border-white/10"
+                autoComplete="off"
               />
+              <button type="submit" className="sr-only">Search</button>
             </form>
           </div>
 
