@@ -37,9 +37,8 @@ const caseStudies = [
 
 const CaseStudiesSection = () => {
   return (
-    <section className="section-padding bg-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-mesh-gradient opacity-20" />
-      <div className="container px-4 relative z-10">
+    <section className="py-20 bg-black">
+      <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,15 +46,15 @@ const CaseStudiesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-space font-bold mb-6 text-white">
-            Proven <span className="text-gradient">Results</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            Proven Results
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Real businesses achieving real savings with our industrial robots
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {caseStudies.map((study, index) => {
             const Icon = study.icon;
             return (
@@ -65,44 +64,39 @@ const CaseStudiesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="h-full"
               >
-                <div className="card-premium h-full relative group overflow-hidden">
-                  <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center opacity-90">
-                    <Icon className="w-6 h-6 text-white" />
+                <Card className="bg-black/40 backdrop-blur-xl border-white/10 hover:border-white/20 transition-all duration-300 p-8 h-full">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 rounded-full bg-primary/10">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">{study.company}</h3>
+                      <p className="text-sm text-gray-400">{study.industry}</p>
+                    </div>
                   </div>
                   
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                      {study.company}
-                    </h3>
-                    <p className="text-primary font-medium text-sm">{study.industry}</p>
-                  </div>
-                  
-                  <div className="space-y-6 mb-8">
-                    <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
-                      <h4 className="text-red-400 font-semibold mb-2 text-sm uppercase tracking-wide">Challenge:</h4>
-                      <p className="text-gray-300 text-sm leading-relaxed">{study.challenge}</p>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-300 mb-2">Challenge:</h4>
+                      <p className="text-gray-400">{study.challenge}</p>
                     </div>
                     
-                    <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                      <h4 className="text-green-400 font-semibold mb-2 text-sm uppercase tracking-wide">Solution:</h4>
-                      <p className="text-gray-300 text-sm leading-relaxed">{study.solution}</p>
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-300 mb-2">Solution:</h4>
+                      <p className="text-gray-400">{study.solution}</p>
+                    </div>
+                    
+                    <div className="pt-4 border-t border-white/10">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-2xl font-bold text-primary">{study.savings}</span>
+                        <span className="text-sm text-gray-400">Annual Savings</span>
+                      </div>
+                      <p className="text-white font-medium">{study.result}</p>
+                      <p className="text-sm text-gray-400 mt-1">{study.roi}</p>
                     </div>
                   </div>
-                  
-                  <div className="pt-6 border-t border-white/10">
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="text-3xl font-bold text-primary animate-glow">{study.savings}</span>
-                      <span className="text-sm text-gray-400 font-medium">Annual Savings</span>
-                    </div>
-                    <p className="text-white font-semibold mb-2">{study.result}</p>
-                    <p className="text-sm text-gray-400">{study.roi}</p>
-                  </div>
-                  
-                  {/* Hover effect overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                </div>
+                </Card>
               </motion.div>
             );
           })}
