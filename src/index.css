@@ -60,19 +60,27 @@
   html {
     /* Maintain stable scrollbar width to prevent layout shifts */
     scrollbar-gutter: stable;
+    overflow-y: scroll;
   }
   
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    /* Prevent body from hiding overflow when dropdowns open */
+    /* Prevent layout shift when dropdowns open */
+    position: relative;
     overflow-x: hidden;
-    overflow-y: scroll !important;
   }
   
-  /* Ensure Radix portals don't affect scrollbar */
-  body[style*="overflow: hidden"] {
-    overflow: hidden auto !important;
+  /* Override Radix Portal body style changes */
+  body[data-scroll-locked] {
+    overflow: visible !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Prevent body overflow changes that cause layout shifts */
+  body[style*="overflow"] {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
   }
 }
 
