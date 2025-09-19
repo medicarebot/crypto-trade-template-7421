@@ -7,14 +7,14 @@ import { Card } from "./ui/card";
 const testimonials = [
   {
     name: "Marcus Weber",
-    role: "Facility Manager, Europa Mall",
+    role: "Facility Manager, Europa Mall", 
     image: "https://avatars.githubusercontent.com/u/1234567?v=4",
     content: "Our Industrial Cleaning Robot has revolutionized our operations. We've cut cleaning costs by 65% while maintaining higher standards than ever before. The ROI was achieved in just 8 months."
   },
   {
     name: "Dr. Anna Hoffman",
     role: "Operations Director, Vienna Medical Center",
-    image: "https://avatars.githubusercontent.com/u/2345678?v=4",
+    image: "https://avatars.githubusercontent.com/u/2345678?v=4", 
     content: "Safety was our primary concern. These robots have eliminated workplace accidents related to cleaning and maintenance while delivering consistent, hospital-grade cleanliness 24/7."
   },
   {
@@ -24,7 +24,7 @@ const testimonials = [
     content: "The window cleaning robots handle our 12-story glass facade flawlessly. We've eliminated the safety risks and reduced our window cleaning costs by 50%. Guest satisfaction has improved significantly."
   },
   {
-    name: "Lars Andersson",
+    name: "Lars Andersson", 
     role: "Maintenance Chief, Stockholm Airport",
     image: "https://avatars.githubusercontent.com/u/4567890?v=4",
     content: "With 24/7 operations, we needed reliable automation. Apex robots work continuously without breaks, maintaining our facility standards while reducing our maintenance staff costs by 40%."
@@ -37,7 +37,7 @@ const testimonials = [
   },
   {
     name: "Thomas Mitchell",
-    role: "Property Manager, Business Park London",
+    role: "Property Manager, Business Park London", 
     image: "https://avatars.githubusercontent.com/u/6789012?v=4",
     content: "Managing 15 buildings was becoming costly. These robots have streamlined our operations, reduced our cleaning staff by 3 FTE, and improved tenant satisfaction scores by 30%."
   }
