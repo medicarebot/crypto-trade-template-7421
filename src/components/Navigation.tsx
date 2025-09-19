@@ -149,8 +149,8 @@ const Navigation = () => {
               <ShoppingCart className="w-4 h-4 mr-1" />
               Cart
               {cartItemCount > 0 && (
-                <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 text-xs bg-red-500 hover:bg-red-600">
-                  {cartItemCount}
+                <Badge className="absolute -top-1 -right-1 h-4 w-4 rounded-full p-0 text-[10px] font-semibold bg-background text-primary border-2 border-primary flex items-center justify-center shadow-lg">
+                  {cartItemCount > 9 ? '9+' : cartItemCount}
                 </Badge>
               )}
             </Button>
@@ -241,8 +241,8 @@ const Navigation = () => {
                       <ShoppingCart className="w-4 h-4 mr-2" />
                       Cart
                       {cartItemCount > 0 && (
-                        <Badge className="ml-2 h-5 w-5 rounded-full p-0 text-xs bg-red-500">
-                          {cartItemCount}
+                        <Badge className="ml-2 h-4 w-4 rounded-full p-0 text-[10px] font-semibold bg-background text-primary border-2 border-primary flex items-center justify-center">
+                          {cartItemCount > 9 ? '9+' : cartItemCount}
                         </Badge>
                       )}
                     </Button>
