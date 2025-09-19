@@ -51,17 +51,17 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       
       <main className="container px-4 py-8 mt-20">
         {/* Breadcrumbs */}
-        <div className="text-sm text-gray-400 mb-6">
-          <span className="hover:text-white cursor-pointer">Home</span>
+        <div className="text-sm text-muted-foreground mb-6">
+          <span className="hover:text-foreground cursor-pointer">Home</span>
           <span className="mx-2">/</span>
-          <span className="hover:text-white cursor-pointer">Products</span>
+          <span className="hover:text-foreground cursor-pointer">Products</span>
           <span className="mx-2">/</span>
-          <span className="text-white">{product.name}</span>
+          <span className="text-foreground">{product.name}</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
@@ -87,7 +87,7 @@ const ProductDetail = () => {
                 ))}
               </div>
               
-              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
                 {product.name}
               </h1>
               
@@ -98,10 +98,10 @@ const ProductDetail = () => {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star 
                       key={i} 
-                      className={`w-5 h-5 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-gray-600'}`} 
+                      className={`w-5 h-5 ${i < 4 ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground'}`} 
                     />
                   ))}
-                  <span className="ml-2 text-sm text-gray-300">
+                  <span className="ml-2 text-sm text-muted-foreground">
                     4.9 (127 reviews)
                   </span>
                 </div>
@@ -109,13 +109,13 @@ const ProductDetail = () => {
             </div>
 
             {/* Pricing Section */}
-            <Card className="glass border-white/10 bg-gradient-to-br from-primary/5 to-transparent">
+            <Card className="glass border-border bg-gradient-to-br from-primary/5 to-transparent">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="text-4xl font-bold text-white">${product.price}</span>
+                  <span className="text-4xl font-bold text-foreground">${product.price}</span>
                   {product.originalPrice && (
                     <>
-                      <span className="text-xl text-gray-400 line-through">
+                      <span className="text-xl text-muted-foreground line-through">
                         ${product.originalPrice}
                       </span>
                       <Badge variant="destructive" className="text-sm">
@@ -127,55 +127,55 @@ const ProductDetail = () => {
                 
                 <div className="flex items-center gap-2 mb-6">
                   <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-sm text-gray-300">In Stock - Ready to Ship</span>
+                  <span className="text-sm text-muted-foreground">In Stock - Ready to Ship</span>
                 </div>
 
                 {/* Quantity and Add to Cart */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <label className="text-sm font-medium text-gray-300">Quantity:</label>
-                    <div className="flex items-center border border-white/20 rounded-md">
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        disabled={quantity <= 1}
-                        className="text-white hover:bg-white/10"
-                      >
-                        -
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <label className="text-sm font-medium text-muted-foreground">Quantity:</label>
+                      <div className="flex items-center border border-border rounded-md">
+                        <Button 
+                          variant="ghost" 
+                          size="sm"
+                          onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                          disabled={quantity <= 1}
+                          className="text-foreground hover:bg-muted"
+                        >
+                          -
+                        </Button>
+                        <span className="px-4 py-2 text-center min-w-[60px] text-foreground">{quantity}</span>
+                        <Button 
+                          variant="ghost" 
+                          size="sm"
+                          onClick={() => setQuantity(quantity + 1)}
+                          className="text-foreground hover:bg-muted"
+                        >
+                          +
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4">
+                      <Button size="lg" className="flex-1 button-gradient">
+                        <ShoppingCart className="w-5 h-5 mr-2" />
+                        Add to Cart
                       </Button>
-                      <span className="px-4 py-2 text-center min-w-[60px] text-white">{quantity}</span>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        onClick={() => setQuantity(quantity + 1)}
-                        className="text-white hover:bg-white/10"
-                      >
-                        +
+                      <Button variant="outline" size="lg">
+                        <Heart className="w-5 h-5" />
+                      </Button>
+                      <Button variant="outline" size="lg">
+                        <Share2 className="w-5 h-5" />
                       </Button>
                     </div>
                   </div>
-
-                  <div className="flex gap-4">
-                    <Button size="lg" className="flex-1 button-gradient">
-                      <ShoppingCart className="w-5 h-5 mr-2" />
-                      Add to Cart
-                    </Button>
-                    <Button variant="outline" size="lg" className="border-white/20">
-                      <Heart className="w-5 h-5" />
-                    </Button>
-                    <Button variant="outline" size="lg" className="border-white/20">
-                      <Share2 className="w-5 h-5" />
-                    </Button>
-                  </div>
-                </div>
               </CardContent>
             </Card>
 
             {/* Key Features */}
-            <Card className="glass border-white/10">
+            <Card className="glass border-border">
               <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
+                <CardTitle className="text-foreground flex items-center gap-2">
                   <Zap className="w-5 h-5 text-primary" />
                   Key Features
                 </CardTitle>
@@ -184,7 +184,7 @@ const ProductDetail = () => {
                 {product.keyFeatures.map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-gray-300">{feature}</span>
+                    <span className="text-muted-foreground">{feature}</span>
                   </div>
                 ))}
               </CardContent>
@@ -192,25 +192,25 @@ const ProductDetail = () => {
 
             {/* Trust Indicators */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Card className="glass border-white/10">
+              <Card className="glass border-border">
                 <CardContent className="p-4 text-center">
                   <Truck className="w-6 h-6 text-primary mx-auto mb-2" />
-                  <p className="font-medium text-sm text-white">Free Shipping</p>
-                  <p className="text-xs text-gray-400">On orders over $1000</p>
+                  <p className="font-medium text-sm text-foreground">Free Shipping</p>
+                  <p className="text-xs text-muted-foreground">On orders over $1000</p>
                 </CardContent>
               </Card>
-              <Card className="glass border-white/10">
+              <Card className="glass border-border">
                 <CardContent className="p-4 text-center">
                   <Shield className="w-6 h-6 text-primary mx-auto mb-2" />
-                  <p className="font-medium text-sm text-white">2 Year Warranty</p>
-                  <p className="text-xs text-gray-400">Full coverage</p>
+                  <p className="font-medium text-sm text-foreground">2 Year Warranty</p>
+                  <p className="text-xs text-muted-foreground">Full coverage</p>
                 </CardContent>
               </Card>
-              <Card className="glass border-white/10">
+              <Card className="glass border-border">
                 <CardContent className="p-4 text-center">
                   <RotateCcw className="w-6 h-6 text-primary mx-auto mb-2" />
-                  <p className="font-medium text-sm text-white">30 Day Returns</p>
-                  <p className="text-xs text-gray-400">Money back guarantee</p>
+                  <p className="font-medium text-sm text-foreground">30 Day Returns</p>
+                  <p className="text-xs text-muted-foreground">Money back guarantee</p>
                 </CardContent>
               </Card>
             </div>
@@ -218,47 +218,47 @@ const ProductDetail = () => {
         </div>
 
         {/* Detailed Description Section */}
-        <Card className="glass border-white/10 mb-16">
+        <Card className="glass border-border mb-16">
           <CardHeader>
-            <CardTitle className="text-2xl text-white">About This Product</CardTitle>
+            <CardTitle className="text-2xl text-foreground">About This Product</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
-                <p className="text-gray-300 leading-relaxed text-lg">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                   {product.description}
                 </p>
-                <Separator className="my-6 bg-white/10" />
+                <Separator className="my-6 bg-border" />
                 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-white">Why Choose This Robot?</h3>
+                  <h3 className="text-xl font-semibold text-foreground">Why Choose This Robot?</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex items-start gap-3">
                       <Award className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-medium text-white">Industry Leading</h4>
-                        <p className="text-sm text-gray-400">Best-in-class performance and reliability</p>
+                        <h4 className="font-medium text-foreground">Industry Leading</h4>
+                        <p className="text-sm text-muted-foreground">Best-in-class performance and reliability</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Settings className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-medium text-white">Easy Integration</h4>
-                        <p className="text-sm text-gray-400">Seamless setup and operation</p>
+                        <h4 className="font-medium text-foreground">Easy Integration</h4>
+                        <p className="text-sm text-muted-foreground">Seamless setup and operation</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Globe className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-medium text-white">Global Support</h4>
-                        <p className="text-sm text-gray-400">Worldwide service and maintenance</p>
+                        <h4 className="font-medium text-foreground">Global Support</h4>
+                        <p className="text-sm text-muted-foreground">Worldwide service and maintenance</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <Shield className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className="font-medium text-white">Safety First</h4>
-                        <p className="text-sm text-gray-400">Comprehensive safety systems</p>
+                        <h4 className="font-medium text-foreground">Safety First</h4>
+                        <p className="text-sm text-muted-foreground">Comprehensive safety systems</p>
                       </div>
                     </div>
                   </div>
@@ -266,13 +266,13 @@ const ProductDetail = () => {
               </div>
               
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-white">Quick Specs</h3>
-                <Card className="glass border-white/10">
+                <h3 className="text-xl font-semibold text-foreground">Quick Specs</h3>
+                <Card className="glass border-border">
                   <CardContent className="p-4 space-y-3">
                     {Object.entries(product.specs).map(([key, value]) => (
                       <div key={key} className="flex justify-between items-center">
-                        <span className="text-gray-400 capitalize">{key}:</span>
-                        <span className="text-white font-semibold">{value}</span>
+                        <span className="text-muted-foreground capitalize">{key}:</span>
+                        <span className="text-foreground font-semibold">{value}</span>
                       </div>
                     ))}
                   </CardContent>
@@ -285,7 +285,7 @@ const ProductDetail = () => {
         {/* Technical Specifications Tabs */}
         {technicalSpecs && (
           <Tabs defaultValue="specifications" className="mb-16">
-            <TabsList className="grid w-full grid-cols-2 bg-white/5">
+            <TabsList className="grid w-full grid-cols-2 bg-muted">
               <TabsTrigger value="specifications" className="data-[state=active]:bg-primary">
                 Technical Specifications
               </TabsTrigger>
@@ -297,25 +297,25 @@ const ProductDetail = () => {
             <TabsContent value="specifications" className="mt-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {Object.entries(technicalSpecs.specifications).map(([category, specs]) => (
-                  <Card key={category} className="glass border-white/10">
+                  <Card key={category} className="glass border-border">
                     <CardHeader>
-                      <CardTitle className="text-white">{category}</CardTitle>
+                      <CardTitle className="text-foreground">{category}</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
                       {Object.entries(specs).map(([key, value]) => (
                         <div key={key} className="flex justify-between items-start">
-                          <span className="text-gray-400 text-sm font-medium">{key}:</span>
+                          <span className="text-muted-foreground text-sm font-medium">{key}:</span>
                           <div className="text-right">
                             {Array.isArray(value) ? (
                               <div className="space-y-1">
                                 {value.map((item: string, index: number) => (
-                                  <div key={index} className="text-white text-sm">
+                                  <div key={index} className="text-foreground text-sm">
                                     {item}
                                   </div>
                                 ))}
                               </div>
                             ) : (
-                              <span className="text-white text-sm font-semibold">{String(value)}</span>
+                              <span className="text-foreground text-sm font-semibold">{String(value)}</span>
                             )}
                           </div>
                         </div>
