@@ -84,8 +84,9 @@ const SimplifiedProductSection = () => {
   };
 
   return (
-    <section className="py-20 bg-black">
-      <div className="container px-4">
+    <section className="section-padding bg-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-gradient opacity-20" />
+      <div className="container px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,15 +94,15 @@ const SimplifiedProductSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Solutions That Pay for Themselves
+          <h2 className="text-4xl md:text-5xl font-space font-bold mb-6 text-white">
+            Solutions That <span className="text-gradient">Pay for Themselves</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Each robot addresses specific operational challenges while delivering measurable ROI
           </p>
         </motion.div>
 
-        <div className="space-y-16">
+        <div className="space-y-20 max-w-7xl mx-auto">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
@@ -109,116 +110,130 @@ const SimplifiedProductSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="relative"
             >
-              <Card className="bg-black/40 backdrop-blur-xl border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden">
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                  {/* Image */}
-                  <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-64 object-cover rounded-lg"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className={`flex flex-col justify-center ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                    <h3 className="text-3xl font-bold text-white mb-6">{product.name}</h3>
-                    
-                    {/* Pain → Solution → ROI */}
-                    <div className="space-y-4 mb-8">
-                      <div className="border-l-4 border-red-500 pl-4">
-                        <h4 className="text-red-400 font-semibold mb-2">Problem:</h4>
-                        <p className="text-gray-300">{product.problem}</p>
-                      </div>
-                      
-                      <div className="border-l-4 border-green-500 pl-4">
-                        <h4 className="text-green-400 font-semibold mb-2">Solution:</h4>
-                        <p className="text-gray-300">{product.solution}</p>
-                      </div>
-                      
-                      <div className="border-l-4 border-primary pl-4">
-                        <h4 className="text-primary font-semibold mb-2">ROI:</h4>
-                        <p className="text-gray-300">{product.roi}</p>
-                      </div>
-                    </div>
-
-                    {/* Pricing */}
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="text-center p-4 bg-white/5 rounded-lg">
-                        <div className="flex items-center justify-center mb-2">
-                          <Euro className="w-5 h-5 text-primary mr-2" />
-                          <span className="text-2xl font-bold text-white">{product.leasePrice}</span>
+                <div className="card-premium cursor-pointer group overflow-hidden transition-all duration-500" 
+                  onClick={() => navigate(`/product/${product.id}`)}
+                >
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                    {/* Image */}
+                    <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                      <div className="relative overflow-hidden rounded-xl group-hover:scale-105 transition-transform duration-500">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-80 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="absolute top-4 right-4 glass px-4 py-2 rounded-full">
+                          <span className="text-primary font-bold">{product.price}</span>
                         </div>
-                        <p className="text-sm text-gray-400">Monthly Lease</p>
                       </div>
-                      <div className="text-center p-4 bg-white/5 rounded-lg">
-                        <div className="flex items-center justify-center mb-2">
-                          <TrendingUp className="w-5 h-5 text-green-400 mr-2" />
-                          <span className="text-2xl font-bold text-white">{product.price}</span>
+                    </div>
+
+                    {/* Content */}
+                    <div className={`flex flex-col justify-center ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                      <h3 className="text-3xl font-space font-bold text-white mb-6 group-hover:text-primary transition-colors">
+                        {product.name}
+                      </h3>
+                      
+                      {/* Pain → Solution → ROI */}
+                      <div className="space-y-6 mb-8">
+                        <div className="p-5 bg-red-500/10 border-l-4 border-red-500 rounded-r-lg">
+                          <h4 className="text-red-400 font-semibold mb-2 text-sm uppercase tracking-wide">Problem:</h4>
+                          <p className="text-gray-300 leading-relaxed">{product.problem}</p>
                         </div>
-                        <p className="text-sm text-gray-400">Purchase Price</p>
+                        
+                        <div className="p-5 bg-green-500/10 border-l-4 border-green-500 rounded-r-lg">
+                          <h4 className="text-green-400 font-semibold mb-2 text-sm uppercase tracking-wide">Solution:</h4>
+                          <p className="text-gray-300 leading-relaxed">{product.solution}</p>
+                        </div>
+                        
+                        <div className="p-5 bg-primary/10 border-l-4 border-primary rounded-r-lg">
+                          <h4 className="text-primary font-semibold mb-2 text-sm uppercase tracking-wide">ROI:</h4>
+                          <p className="text-gray-300 leading-relaxed">{product.roi}</p>
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Key Benefits */}
-                    <div className="mb-6">
-                      <h4 className="text-white font-semibold mb-3">Key Benefits:</h4>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {product.keyBenefits.map((benefit, idx) => (
-                          <li key={idx} className="flex items-center text-gray-300">
-                            <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0" />
-                            {benefit}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                      {/* Pricing */}
+                      <div className="grid grid-cols-2 gap-6 mb-8">
+                        <div className="text-center p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20">
+                          <div className="flex items-center justify-center mb-3">
+                            <Euro className="w-5 h-5 text-primary mr-2" />
+                            <span className="text-2xl font-bold text-white">{product.leasePrice}</span>
+                          </div>
+                          <p className="text-sm text-gray-400 font-medium">Monthly Lease</p>
+                        </div>
+                        <div className="text-center p-5 bg-gradient-to-br from-green-500/10 to-green-500/5 rounded-xl border border-green-500/20">
+                          <div className="flex items-center justify-center mb-3">
+                            <TrendingUp className="w-5 h-5 text-green-400 mr-2" />
+                            <span className="text-2xl font-bold text-white">{product.price}</span>
+                          </div>
+                          <p className="text-sm text-gray-400 font-medium">Purchase Price</p>
+                        </div>
+                      </div>
 
-                    {/* Specs Toggle */}
-                    <Collapsible open={openSpecs === product.id} onOpenChange={() => toggleSpecs(product.id)}>
-                      <CollapsibleTrigger asChild>
-                        <Button variant="outline" className="mb-4 w-full">
-                          {openSpecs === product.id ? 'Hide' : 'View'} Technical Specifications
+                      {/* Key Benefits */}
+                      <div className="mb-8">
+                        <h4 className="text-white font-semibold mb-4 text-lg">Key Benefits:</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {product.keyBenefits.map((benefit, idx) => (
+                            <div key={idx} className="flex items-center text-gray-300 group-hover:text-white transition-colors">
+                              <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0 animate-glow" />
+                              {benefit}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Specs Toggle */}
+                      <Collapsible open={openSpecs === product.id} onOpenChange={() => toggleSpecs(product.id)}>
+                        <CollapsibleTrigger asChild>
+                          <Button className="button-outline-glow mb-6 w-full">
+                            {openSpecs === product.id ? 'Hide' : 'View'} Technical Specifications
+                          </Button>
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="space-y-2 mb-6">
+                          <div className="glass-premium p-6 rounded-xl">
+                            <ul className="space-y-3">
+                              {product.specifications.map((spec, idx) => (
+                                <li key={idx} className="text-gray-300 text-sm flex items-start">
+                                  <span className="text-primary mr-2">•</span>
+                                  {spec}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </CollapsibleContent>
+                      </Collapsible>
+
+                      {/* CTAs */}
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <Button 
+                          className="button-gradient flex-1 font-medium"
+                          onClick={(e) => {e.stopPropagation(); navigate('/contact');}}
+                        >
+                          Book Demo <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
-                      </CollapsibleTrigger>
-                      <CollapsibleContent className="space-y-2 mb-6">
-                        <div className="bg-white/5 rounded-lg p-4">
-                          <ul className="space-y-2">
-                            {product.specifications.map((spec, idx) => (
-                              <li key={idx} className="text-gray-300 text-sm">• {spec}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </CollapsibleContent>
-                    </Collapsible>
-
-                    {/* CTAs */}
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Button 
-                        className="button-gradient flex-1"
-                        onClick={() => navigate('/contact')}
-                      >
-                        Book Demo <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        className="flex-1"
-                        onClick={() => navigate('/roi-calculator')}
-                      >
-                        Calculate ROI
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        className="text-gray-400 hover:text-white"
-                      >
-                        <Download className="w-4 h-4 mr-2" />
-                        Spec Sheet
-                      </Button>
+                        <Button 
+                          className="button-outline-glow flex-1"
+                          onClick={(e) => {e.stopPropagation(); navigate('/roi-calculator');}}
+                        >
+                          Calculate ROI
+                        </Button>
+                        <Button 
+                          variant="ghost" 
+                          size="sm"
+                          className="text-gray-400 hover:text-white transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <Download className="w-4 h-4 mr-2" />
+                          Spec Sheet
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </Card>
             </motion.div>
           ))}
         </div>
