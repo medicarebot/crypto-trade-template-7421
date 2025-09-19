@@ -38,7 +38,7 @@ const PricingTier = ({
         ))}
       </ul>
       <Button className="button-gradient w-full">
-        Start Trading
+        Get Quote
       </Button>
     </div>
   </CardSpotlight>
@@ -54,8 +54,8 @@ export const PricingSection = () => {
           transition={{ duration: 0.5 }}
           className="text-5xl md:text-6xl font-normal mb-6"
         >
-          Choose Your{" "}
-          <span className="text-gradient font-medium">Trading Plan</span>
+          Flexible{" "}
+          <span className="text-gradient font-medium">Leasing Options</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -63,45 +63,47 @@ export const PricingSection = () => {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="text-lg text-gray-400"
         >
-          Select the perfect trading plan with advanced features and competitive fees
+          Choose the payment model that works best for your business
         </motion.p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <PricingTier
-          name="Basic Trader"
-          price="$0"
-          description="Perfect for beginners starting their crypto journey"
+          name="Lease Option"
+          price="€1,500"
+          description="Perfect for testing automation with minimal upfront cost"
           features={[
-            "Basic spot trading",
-            "Market & limit orders",
-            "Basic market analysis",
-            "Email support"
+            "Full maintenance included",
+            "24/7 technical support",
+            "Software updates",
+            "Installation & training",
+            "Performance monitoring"
           ]}
         />
         <PricingTier
-          name="Pro Trader"
-          price="$29"
-          description="Advanced features for serious traders"
+          name="Purchase"
+          price="€28,000"
+          description="Own your robots with full control and customization"
           features={[
-            "Advanced trading tools",
-            "Margin trading up to 10x",
-            "Advanced technical analysis",
-            "Priority support",
-            "API access"
+            "Complete ownership",
+            "Custom configurations",
+            "Extended warranty",
+            "Priority technical support",
+            "Free software updates",
+            "Installation & training"
           ]}
           isPopular
         />
         <PricingTier
-          name="Institutional"
+          name="Enterprise"
           price="Custom"
-          description="Enterprise-grade solutions for institutions"
+          description="Large-scale deployments with volume discounts"
           features={[
-            "Custom trading solutions",
-            "Unlimited trading volume",
-            "OTC desk access",
+            "Volume pricing discounts",
+            "Multi-site deployment",
             "Dedicated account manager",
-            "Custom API integration",
+            "Custom integration",
+            "Performance guarantees",
             "24/7 priority support"
           ]}
         />

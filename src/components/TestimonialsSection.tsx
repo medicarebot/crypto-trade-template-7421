@@ -6,40 +6,40 @@ import { Card } from "./ui/card";
 
 const testimonials = [
   {
-    name: "Michael Chen",
-    role: "Professional Trader",
+    name: "Marcus Weber",
+    role: "Facility Manager, Europa Mall",
     image: "https://avatars.githubusercontent.com/u/1234567?v=4",
-    content: "The real-time market data and advanced trading features have significantly improved my trading performance. The platform's security measures give me peace of mind."
+    content: "Our Industrial Cleaning Robot has revolutionized our operations. We've cut cleaning costs by 65% while maintaining higher standards than ever before. The ROI was achieved in just 8 months."
   },
   {
-    name: "Sarah Johnson",
-    role: "Crypto Fund Manager",
+    name: "Dr. Anna Hoffman",
+    role: "Operations Director, Vienna Medical Center",
     image: "https://avatars.githubusercontent.com/u/2345678?v=4",
-    content: "CryptoTrade's institutional-grade tools have transformed our trading strategy. The API integration and automated features have saved us countless hours."
+    content: "Safety was our primary concern. These robots have eliminated workplace accidents related to cleaning and maintenance while delivering consistent, hospital-grade cleanliness 24/7."
   },
   {
-    name: "David Wilson",
-    role: "Early Crypto Investor",
+    name: "Giovanni Rossi",
+    role: "General Manager, Alpine Resort Hotel",
     image: "https://avatars.githubusercontent.com/u/3456789?v=4",
-    content: "The customer support is exceptional, and the platform's intuitive design made getting started with crypto trading seamless. A game-changer for both beginners and pros."
+    content: "The window cleaning robots handle our 12-story glass facade flawlessly. We've eliminated the safety risks and reduced our window cleaning costs by 50%. Guest satisfaction has improved significantly."
   },
   {
-    name: "Emily Zhang",
-    role: "DeFi Developer",
+    name: "Lars Andersson",
+    role: "Maintenance Chief, Stockholm Airport",
     image: "https://avatars.githubusercontent.com/u/4567890?v=4",
-    content: "We've seen remarkable improvements in our trading efficiency since switching to CryptoTrade. The smart order routing and liquidity aggregation are particularly impressive."
+    content: "With 24/7 operations, we needed reliable automation. Apex robots work continuously without breaks, maintaining our facility standards while reducing our maintenance staff costs by 40%."
   },
   {
-    name: "James Rodriguez",
-    role: "Crypto Security Expert",
+    name: "Claire Dubois",
+    role: "Grounds Manager, Château Golf Club",
     image: "https://avatars.githubusercontent.com/u/5678901?v=4",
-    content: "The security features are robust and the regular updates keep us ahead of emerging threats. It's exactly what the crypto industry needed."
+    content: "Our grass cutting robots handle our 18-hole course with precision. We've reduced mowing labor costs by 60% while achieving more consistent grass quality. The members love the quieter operations."
   },
   {
-    name: "Lisa Thompson",
-    role: "Portfolio Manager",
+    name: "Thomas Mitchell",
+    role: "Property Manager, Business Park London",
     image: "https://avatars.githubusercontent.com/u/6789012?v=4",
-    content: "The platform's ability to handle complex trading strategies while maintaining simplicity in its interface is remarkable. It's been invaluable for our portfolio management."
+    content: "Managing 15 buildings was becoming costly. These robots have streamlined our operations, reduced our cleaning staff by 3 FTE, and improved tenant satisfaction scores by 30%."
   }
 ];
 
@@ -54,9 +54,9 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-normal mb-4">Trusted by Traders</h2>
+          <h2 className="text-5xl font-normal mb-4">Trusted by Industry Leaders</h2>
           <p className="text-muted-foreground text-lg">
-            Join thousands of satisfied traders on CryptoTrade
+            Join hundreds of facilities across Europe reducing costs with industrial automation
           </p>
         </motion.div>
 
