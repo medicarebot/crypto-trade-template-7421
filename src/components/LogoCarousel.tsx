@@ -14,7 +14,7 @@ const LogoCarousel = () => {
   return (
     <div className="w-full overflow-hidden bg-background/50 backdrop-blur-sm py-12 mt-20">
       <motion.div 
-        className="flex space-x-16"
+        className="flex space-x-12"
         initial={{ opacity: 0, x: "0%" }}
         animate={{
           opacity: 1,
