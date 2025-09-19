@@ -60,6 +60,7 @@
   html {
     /* Force scrollbar to always be visible to prevent layout shifts */
     overflow-y: scroll;
+    overflow-x: hidden;
     scrollbar-gutter: stable;
   }
   

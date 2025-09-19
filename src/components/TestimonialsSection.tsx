@@ -45,7 +45,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 overflow-hidden bg-card">
+    <section className="py-20 bg-card relative overflow-hidden">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,11 +60,11 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="relative flex flex-col antialiased">
-          <div className="relative flex overflow-hidden py-4">
-            <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
+        <div className="relative overflow-hidden">
+          <div className="flex py-4 w-full">
+            <div className="animate-marquee flex shrink-0 items-stretch gap-8">
               {testimonials.map((testimonial, index) => (
-                <Card key={`${index}-1`} className="w-[400px] shrink-0 glass border-border hover:border-primary/20 transition-all duration-300 p-8">
+                <Card key={`${index}-1`} className="w-[350px] shrink-0 glass border-border hover:border-primary/20 transition-all duration-300 p-6">
                   <div className="flex items-center gap-4 mb-6">
                     <Avatar className="h-12 w-12">
                       <AvatarImage src={testimonial.image} />
@@ -81,9 +81,9 @@ const TestimonialsSection = () => {
                 </Card>
               ))}
             </div>
-            <div className="animate-marquee flex min-w-full shrink-0 items-stretch gap-8">
+            <div className="animate-marquee flex shrink-0 items-stretch gap-8">
               {testimonials.map((testimonial, index) => (
-                <Card key={`${index}-2`} className="w-[400px] shrink-0 glass border-border hover:border-primary/20 transition-all duration-300 p-8">
+                <Card key={`${index}-2`} className="w-[350px] shrink-0 glass border-border hover:border-primary/20 transition-all duration-300 p-6">
                   <div className="flex items-center gap-4 mb-6">
                     <Avatar className="h-12 w-12">
                       <AvatarImage src={testimonial.image} />
