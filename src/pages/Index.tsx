@@ -8,9 +8,10 @@ import LogoCarousel from "@/components/LogoCarousel";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import IndustriesSection from "@/components/IndustriesSection";
-import CaseStudiesSection from "@/components/CaseStudiesSection";
-import SimplifiedProductSection from "@/components/product/SimplifiedProductSection";
+import { ProductShowcase } from "@/components/product/ProductShowcase";
+import { TechnicalSpecs } from "@/components/product/TechnicalSpecs";
+import { ProductComparison } from "@/components/product/ProductComparison";
+import { productData } from "@/data/products";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -54,11 +55,11 @@ const Index = () => {
         <div className="max-w-4xl relative z-10">
           <h1 className="text-5xl md:text-7xl font-normal mb-4 tracking-tight text-left">
             <span className="text-gray-200 font-bold">
-              <TextGenerateEffect words="Cut cleaning & landscaping costs by up to" />
+              <TextGenerateEffect words="Power Up Your Workforce with" />
             </span>
             <br />
             <span className="text-white font-medium">
-              <TextGenerateEffect words="70% with 24/7 industrial robots" />
+              <TextGenerateEffect words="Apex Industrial Robots" />
             </span>
           </h1>
           
@@ -68,8 +69,8 @@ const Index = () => {
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl text-left"
           >
-            Eliminate safety risks, reduce operational costs, and scale your operations without hiring more staff.{" "}
-            <span className="text-white">Trusted by Europe's leading facilities.</span>
+            From spotless floors to crystal-clear skyscraper windows to precision grass cutting, our next-gen industrial robots deliver unmatched performance 24/7.{" "}
+            <span className="text-white">Start automating in minutes.</span>
           </motion.p>
           
           <motion.div
@@ -81,9 +82,9 @@ const Index = () => {
             <Button 
               size="lg" 
               className="button-gradient"
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate('/shop')}
             >
-              Book a Demo
+              Explore Robots
             </Button>
             <Button 
               size="lg" 
@@ -181,8 +182,33 @@ const Index = () => {
         </motion.div>
       </motion.section>
 
-      {/* Industries We Serve */}
-      <IndustriesSection />
+      {/* Product Showcases */}
+      <div className="bg-black">
+        {productData.showcase.map((product, index) => (
+          <ProductShowcase 
+            key={product.id} 
+            product={product} 
+            reverse={index % 2 === 1} 
+          />
+        ))}
+      </div>
+
+      {/* Technical Specifications */}
+      <div className="bg-black">
+        <TechnicalSpecs products={productData.technicalSpecs} />
+      </div>
+
+      {/* Product Comparison */}
+      <div className="bg-black">
+        <ProductComparison features={productData.comparison} />
+      </div>
+
+      
+
+      {/* Testimonials Section */}
+      <div className="bg-black">
+        <TestimonialsSection />
+      </div>
 
       {/* ROI Calculator Section */}
       <section id="roi-calculator" className="container px-4 py-20 bg-black">
@@ -196,28 +222,28 @@ const Index = () => {
             How Much Can You Save?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Calculate your potential savings with our ROI calculator. See how much you could save by automating your facility operations.
+            Calculate your potential savings with our ROI calculator. Input your facility details and see estimated savings per year.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <div className="text-center">
-              <div className="text-2xl mb-2">💰</div>
-              <h3 className="text-white font-semibold">Up to 70% Savings</h3>
-              <p className="text-gray-400 text-sm">On operational costs</p>
+              <div className="text-2xl mb-2">🇪🇺</div>
+              <h3 className="text-white font-semibold">European-Based</h3>
+              <p className="text-gray-400 text-sm">Quality you can rely on</p>
             </div>
             <div className="text-center">
-              <div className="text-2xl mb-2">🛡️</div>
-              <h3 className="text-white font-semibold">Zero Accidents</h3>
-              <p className="text-gray-400 text-sm">Eliminate workplace risks</p>
+              <div className="text-2xl mb-2">🔒</div>
+              <h3 className="text-white font-semibold">GDPR Ready</h3>
+              <p className="text-gray-400 text-sm">Enterprise-grade security</p>
             </div>
             <div className="text-center">
-              <div className="text-2xl mb-2">⏰</div>
-              <h3 className="text-white font-semibold">24/7 Operations</h3>
-              <p className="text-gray-400 text-sm">No breaks, no overtime</p>
+              <div className="text-2xl mb-2">💡</div>
+              <h3 className="text-white font-semibold">Proven ROI</h3>
+              <p className="text-gray-400 text-sm">Documented cost savings</p>
             </div>
             <div className="text-center">
-              <div className="text-2xl mb-2">📈</div>
-              <h3 className="text-white font-semibold">12 Month ROI</h3>
-              <p className="text-gray-400 text-sm">Typical payback period</p>
+              <div className="text-2xl mb-2">🏆</div>
+              <h3 className="text-white font-semibold">Certifications</h3>
+              <p className="text-gray-400 text-sm">CE, ISO, safety compliance</p>
             </div>
           </div>
           <Button 
@@ -225,27 +251,11 @@ const Index = () => {
             className="button-gradient"
             onClick={() => navigate('/roi-calculator')}
           >
-            Calculate Your Savings
+            Calculate ROI
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </motion.div>
       </section>
-
-      {/* Case Studies */}
-      <CaseStudiesSection />
-
-      {/* Simplified Product Section */}
-      <SimplifiedProductSection />
-
-      {/* Flexible Leasing Options */}
-      <div className="bg-black">
-        <PricingSection />
-      </div>
-
-      {/* Testimonials Section */}
-      <div className="bg-black">
-        <TestimonialsSection />
-      </div>
 
       {/* CTA Section */}
       <section className="container px-4 py-20 relative bg-black">
@@ -264,10 +274,10 @@ const Index = () => {
           className="bg-[#0A0A0A]/80 backdrop-blur-lg border border-white/10 rounded-2xl p-8 md:p-12 text-center relative z-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Transform Your Operations?
+            Ready to automate your workforce?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join hundreds of European facilities already saving costs and improving safety with industrial automation.
+            Join hundreds of companies who have already discovered the power of industrial automation. Trusted by Europe's industries.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -275,15 +285,15 @@ const Index = () => {
               className="button-gradient"
               onClick={() => navigate('/contact')}
             >
-              Book Demo
+              Request Quote
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
             <Button 
               size="lg" 
               variant="outline"
-              onClick={() => navigate('/roi-calculator')}
+              onClick={() => navigate('/contact')}
             >
-              Get ROI Report
+              Book Demo
             </Button>
           </div>
         </motion.div>
