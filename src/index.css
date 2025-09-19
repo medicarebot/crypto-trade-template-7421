@@ -56,9 +56,23 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    /* Maintain stable scrollbar width to prevent layout shifts */
+    scrollbar-gutter: stable;
+  }
+  
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    /* Prevent body from hiding overflow when dropdowns open */
+    overflow-x: hidden;
+    overflow-y: scroll !important;
+  }
+  
+  /* Ensure Radix portals don't affect scrollbar */
+  body[style*="overflow: hidden"] {
+    overflow: hidden auto !important;
   }
 }
 
