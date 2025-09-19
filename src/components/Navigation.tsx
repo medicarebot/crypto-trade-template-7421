@@ -5,6 +5,7 @@ import { Badge } from "./ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Input } from "./ui/input";
 import { useNavigate } from "react-router-dom";
+import { ThemeToggle } from "./theme/ThemeToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,8 +69,8 @@ const Navigation = () => {
     <header
       className={`fixed top-3.5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${
         isScrolled 
-          ? "h-14 bg-[#1B1B1B]/40 backdrop-blur-xl border border-white/10 scale-95 w-[95%] max-w-6xl" 
-          : "h-14 bg-[#1B1B1B] w-[98%] max-w-7xl"
+          ? "h-14 bg-background/40 backdrop-blur-xl border border-border scale-95 w-[95%] max-w-6xl" 
+          : "h-14 bg-card w-[98%] max-w-7xl border border-border/50"
       }`}
     >
       <div className="mx-auto h-full px-6">
@@ -106,20 +107,23 @@ const Navigation = () => {
           <div className="hidden md:flex flex-1 max-w-sm mx-6">
             <form onSubmit={handleSearch} className="relative w-full">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-              <Input
-                type="text"
-                placeholder="Search products..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 h-9 bg-background/50 border-white/10"
-                autoComplete="off"
-              />
+                <Input
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 h-9 bg-background/50 border-border"
+                  autoComplete="off"
+                />
               <button type="submit" className="sr-only">Search</button>
             </form>
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Theme Toggle */}
+            <ThemeToggle />
+            
             {/* Wishlist */}
             <Button 
               variant="ghost" 
@@ -164,7 +168,7 @@ const Navigation = () => {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="bg-[#1B1B1B]">
+              <SheetContent className="bg-card border-border">
                 <div className="flex flex-col gap-4 mt-8">
                   {/* Mobile Search */}
                   <form onSubmit={(e) => {
@@ -181,7 +185,7 @@ const Navigation = () => {
                       placeholder="Search products..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 bg-background/50 border-white/10"
+                      className="pl-10 bg-background/50 border-border"
                     />
                   </form>
 
@@ -206,7 +210,12 @@ const Navigation = () => {
                   ))}
 
                   {/* Mobile Actions */}
-                  <div className="border-t border-white/10 pt-4 space-y-3">
+                  <div className="border-t border-border pt-4 space-y-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-muted-foreground">Theme</span>
+                      <ThemeToggle />
+                    </div>
+                    
                     <Button 
                       variant="outline"
                       onClick={() => {
