@@ -4,6 +4,7 @@ import { AccountSidebar } from "@/components/account/AccountSidebar";
 import { ProfileSettings } from "@/components/account/ProfileSettings";
 import { AddressBook } from "@/components/account/AddressBook";
 import { PaymentMethods } from "@/components/account/PaymentMethods";
+import { OrderHistory } from "@/components/account/OrderHistory";
 import { useState } from "react";
 
 const Account = () => {
@@ -17,6 +18,8 @@ const Account = () => {
         return <AddressBook />;
       case 'payments':
         return <PaymentMethods />;
+      case 'orders':
+        return <OrderHistory />;
       default:
         return <ProfileSettings />;
     }
