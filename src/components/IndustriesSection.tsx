@@ -36,7 +36,7 @@ const industries = [
 
 const IndustriesSection = () => {
   return (
-    <section className="py-20 bg-black">
+    <section className="py-20 bg-card">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -45,10 +45,10 @@ const IndustriesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Industries We Serve
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Trusted by leading enterprises across Europe to reduce operational costs and improve safety
           </p>
         </motion.div>
@@ -68,10 +68,10 @@ const IndustriesSection = () => {
                 <div className="mb-6">
                   <Icon className="w-12 h-12 text-primary mx-auto" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-4">
+                <h3 className="text-xl font-semibold text-foreground mb-4">
                   {industry.name}
                 </h3>
-                <p className="text-gray-300">
+                <p className="text-muted-foreground">
                   {industry.description}
                 </p>
               </motion.div>

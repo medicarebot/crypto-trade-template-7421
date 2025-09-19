@@ -37,7 +37,7 @@ const caseStudies = [
 
 const CaseStudiesSection = () => {
   return (
-    <section className="py-20 bg-black">
+    <section className="py-20 bg-card">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,10 +46,10 @@ const CaseStudiesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Proven Results
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Real businesses achieving real savings with our industrial robots
           </p>
         </motion.div>
@@ -65,35 +65,35 @@ const CaseStudiesSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <Card className="bg-black/40 backdrop-blur-xl border-white/10 hover:border-white/20 transition-all duration-300 p-8 h-full">
+                <Card className="glass border-border hover:border-primary/20 transition-all duration-300 p-8 h-full">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="p-3 rounded-full bg-primary/10">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white">{study.company}</h3>
-                      <p className="text-sm text-gray-400">{study.industry}</p>
+                      <h3 className="text-xl font-semibold text-foreground">{study.company}</h3>
+                      <p className="text-sm text-muted-foreground">{study.industry}</p>
                     </div>
                   </div>
                   
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-sm font-medium text-gray-300 mb-2">Challenge:</h4>
-                      <p className="text-gray-400">{study.challenge}</p>
+                      <h4 className="text-sm font-medium text-foreground mb-2">Challenge:</h4>
+                      <p className="text-muted-foreground">{study.challenge}</p>
                     </div>
                     
                     <div>
-                      <h4 className="text-sm font-medium text-gray-300 mb-2">Solution:</h4>
-                      <p className="text-gray-400">{study.solution}</p>
+                      <h4 className="text-sm font-medium text-foreground mb-2">Solution:</h4>
+                      <p className="text-muted-foreground">{study.solution}</p>
                     </div>
                     
-                    <div className="pt-4 border-t border-white/10">
+                    <div className="pt-4 border-t border-border">
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-2xl font-bold text-primary">{study.savings}</span>
-                        <span className="text-sm text-gray-400">Annual Savings</span>
+                        <span className="text-sm text-muted-foreground">Annual Savings</span>
                       </div>
-                      <p className="text-white font-medium">{study.result}</p>
-                      <p className="text-sm text-gray-400 mt-1">{study.roi}</p>
+                      <p className="text-foreground font-medium">{study.result}</p>
+                      <p className="text-sm text-muted-foreground mt-1">{study.roi}</p>
                     </div>
                   </div>
                 </Card>
