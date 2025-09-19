@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, Grid, List, Filter, SlidersHorizontal } from "lucide-react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { shopProducts } from "@/data/products";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const Shop = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -17,6 +18,17 @@ const Shop = () => {
   const [selectedBrand, setSelectedBrand] = useState<string>('');
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 60000]);
   const [showFilters, setShowFilters] = useState(false);
+  
+  const location = useLocation();
+
+  // Handle URL search parameters
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const searchParam = params.get('search');
+    if (searchParam) {
+      setSearchTerm(searchParam);
+    }
+  }, [location.search]);
 
   // Filter products based on search and filters
   const filteredProducts = useMemo(() => {

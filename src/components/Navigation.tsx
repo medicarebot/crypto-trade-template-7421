@@ -51,6 +51,7 @@ const Navigation = () => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/shop?search=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery(""); // Clear search after navigation
     }
   };
 
@@ -162,7 +163,14 @@ const Navigation = () => {
               <SheetContent className="bg-[#1B1B1B]">
                 <div className="flex flex-col gap-4 mt-8">
                   {/* Mobile Search */}
-                  <form onSubmit={handleSearch} className="relative">
+                  <form onSubmit={(e) => {
+                    e.preventDefault();
+                    if (searchQuery.trim()) {
+                      setIsMobileMenuOpen(false);
+                      navigate(`/shop?search=${encodeURIComponent(searchQuery)}`);
+                      setSearchQuery("");
+                    }
+                  }} className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                     <Input
                       type="text"
